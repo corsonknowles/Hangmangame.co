@@ -50,12 +50,12 @@
       </controlProperties>
     </control>
     <control controlID="16" controlTypeID="com.balsamiq.mockups::Canvas" x="608" y="311" w="-1" h="-1" measuredW="100" measuredH="70" zOrder="13" locked="false" isInGroup="-1"/>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::StickyNote" x="560" y="324" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::StickyNote" x="560" y="324" w="124" h="123" measuredW="109" measuredH="123" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <text>CSS%20cardflip%20animation%20will%20be%20used%20to%20render%20the%20letters</text>
       </controlProperties>
     </control>
-    <control controlID="18" controlTypeID="com.balsamiq.mockups::StickyNote" x="37" y="290" w="249" h="147" measuredW="109" measuredH="123" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::StickyNote" x="37" y="290" w="275" h="147" measuredW="109" measuredH="123" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
         <text>The%20loading%20page%20will%20swivel%20the%20underlined%20spaces%20into%20position%2C%20then%20cardlflip%20the%20letters%20for%20Hangman%2C%20then%20give%20the%20user%20the%20option%20to%20begin%20guessing%20or%20enter%20a%20word%20of%20their%20choice</text>
       </controlProperties>
