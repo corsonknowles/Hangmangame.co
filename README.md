@@ -32,7 +32,7 @@ The game itself will be a single immersive browser experience, mostly in black w
 Input will come from the user keyboard. This will work by tieing Javascript listeners to the entire window. Surplus features could include a modal for touch & cursor input game controls and voice recognition.
 As a portfoliio piece, it will also contain links to my Github and LinkedIn profiles and a domain specific email for recruiter inquiries, set to forward to my main address.
 
-![wireframes](images/js_wireframe.jpeg)
+![wireframes](images/js_wireframe.png)
 
 ### Architecture and Technologies
 
