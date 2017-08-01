@@ -1,0 +1,29 @@
+{
+  "name": "Hangman",
+  "version": "1.0.0",
+  "engines": {
+    "node": "6.10.1",
+    "npm": "5.3.0"
+  },
+  "description": "Guess the right word or die trying",
+  "main": "hangman.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corsonknowles/Hangmangame.co.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/corsonknowles/Hangmangame.co/issues"
+  },
+  "homepage": "https://github.com/corsonknowles/Hangmangame.co#readme",
+  "dependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel": "^6.23.0",
+    "webpack": "^3.4.1"
+  }
+}
