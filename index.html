@@ -3,16 +3,26 @@
   <head>
     <meta charset="utf-8">
     <title>Hangman</title>
-    <script type="text/javascript" src="hangman.js" >
+    <script type="text/javascript" src="hangman.js" > </script>
 
-    </script>
-    <!-- src="bundle.js" -->
     <link href="application.css" type="text/css" rel="stylesheet" />
-
-
   </head>
   <body>
-    _ _ _ _ _ _ _
+    <!-- allow user dictionary   -->
+    <input type='file' accept='text/plain' onchange='openFile(event)'><br>
+    <img id='output'>
+    <script>
+      var openFile = function(event) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function(){
+          var text = reader.result;
+          console.log(reader.result.substring(0, 200));
+        };
+        reader.readAsText(input.files[0]);
+      };
+    </script>
 
     <div class="developer-display">dev display</div>
     <div class="guess-display">guess display</div>
@@ -23,10 +33,10 @@
     <div class="flip-container " ontouchstart="this.classList.toggle('hover');">
     	<div class="flipper">
     		<div class="front letters">
-    			_
+    			_ _ _ _ _ _ _
     		</div>
     		<div class="back letters">
-    			H
+    			H A N G M A N
     		</div>
     	</div>
     </div>

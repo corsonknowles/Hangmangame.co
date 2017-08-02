@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // set up file reader http://www.javascripture.com/FileReader
 
+
+  let fs = require("fs");
+  let text = fs.readFileSync("./lib/dictionary.txt").toString('utf-8');
+  let textByLine = text.split("\n")
+
   let guessedLetters = [];
   let word = "hangman";
   // Render greeting screen
