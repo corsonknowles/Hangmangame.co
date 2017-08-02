@@ -1,0 +1,20 @@
+textillate.js.org
+use rotate in and rotate out
+
+loading screen of underscores:
+https://tympanus.net/codrops/2012/04/17/rotating-words-with-css-animations/
+rotate them as they come into the screen, one at a time, in sequence
+
+reveal individual letters:
+https://davidwalsh.name/css-flip
+
+https://css-tricks.com/almanac/properties/t/transform/
+
+load screen
+
+_ _ _ _ _ _ _ _
+flip
+h a n g m a n
+
+Look at the javascript for this and align CSS with it:
+https://desandro.github.io/3dtransforms/docs/card-flip.html

@@ -1,9 +1,41 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+  // set up file reader http://www.javascripture.com/FileReader
+
+  let guessedLetters = [];
+  let word = "hangman";
+  // Render greeting screen
+  let hangman = () => {
+    let guessZone = document.getElementById('guess');
+    let addLetter = document.createElement('ul');
+
+    for (let i = 0; i < word.length; i++) {
+      addLetter.setAttribute('name', 'each_letter');
+      guessLetter = document.createElement('li');
+      guessLetter.setAttribute('class', 'guess');
+      if (word[i] === "_") {
+        guessLetter.innerHTML = "_";
+        space = 1;
+      } else {
+        guessLetter.innerHTML = "_";
+      }
+
+      guessedLetters.push(guessLetter);
+
+    }
+  }
+
+  hangman();
+
+
 // document.querySelector("#myCard").classList.toggle("flip")
 
 
 // Find the right method, call on correct element
-function launchFullScreen(element) {
-  if(element.requestFullScreen) {
+let launchFullScreen = () => {
+  let element = document.getElementsByTagName("body")[0];
+
+  if (element.requestFullScreen) {
     element.requestFullScreen();
   } else if(element.mozRequestFullScreen) {
     element.mozRequestFullScreen();
@@ -12,9 +44,64 @@ function launchFullScreen(element) {
   }
 }
 
-// Launch fullscreen for browsers that support it!
-launchFullScreen(document.documentElement); // the whole page
-launchFullScreen(document.getElementById("gameElement")); // any individual element - peg this to hangman
+let fullScreenButton = document.getElementsByClassName("full-screen-button");
+console.log(fullScreenButton);
+fullScreenButton[0].addEventListener("click", launchFullScreen, false);
+// fullScreenButton.onclick = launchFullScreen;
+
+
+
+
+
+// launchFullScreen(document.getElementById("gameElement")); // make any individual element fullscreen
+
+
+// writing to the page
+// document.getElementById("demo").innerHTML = "You may guess a letter. Simply type with your keyboard"
+
+
+// listener for keyboard inputs
+let body = document.querySelector('body');
+
+body.onkeydown = (event) => {
+  if ( !event.metaKey ) {
+    event.preventDefault();
+  }
+
+  document.querySelector('.developer-display').innerHTML = event.keyCode;
+  document.querySelector('.guess-display').innerHTML =
+    letters[event.keyCode] || "";
+};
+
+let letters = {
+  65 : "a",
+  66 : "b",
+  67 : "c",
+  68 : "d",
+  69 : "e",
+  70 : "f",
+  71 : "g",
+  72 : "h",
+  73 : "i",
+  74 : "j",
+  75 : "k",
+  76 : "l",
+  77 : "m",
+  78 : "n",
+  79 : "o",
+  80 : "p",
+  81 : "q",
+  82 : "r",
+  83 : "s",
+  84 : "t",
+  85 : "u",
+  86 : "v",
+  87 : "w",
+  88 : "x",
+  89 : "y",
+  90 : "z"
+}
+
 
 
 class Hangman {
@@ -137,7 +224,7 @@ class Hangman {
 //     puts "Pick a letter a to zed. Thanks!"
 //     @guess = $stdin.gets.chomp
 //   end
-// 
+//
 //   def check_guess(input)
 //     input ||= guess
 //     result = []
@@ -316,3 +403,5 @@ class Hangman {
 //   g.play
 //
 // end
+
+});

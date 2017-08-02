@@ -1,4 +1,7 @@
-
+body {
+	background-image: linear-gradient(-90deg, #000000, #FFFFFF);
+	font-family: 'Montserrat', Arial, Helvetica, 'sans-serif';
+}
 
 .letters {
 	font-size: 40vmin;
@@ -14,10 +17,10 @@
 .flip-container {
 	perspective: 1000px;
 }
-	/* flip the pane when hovered */
-	.flip-container:hover .flipper, .flip-container.hover .flipper {
-		transform: rotateY(180deg);
-	}
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+	transform: rotateY(180deg);
+}
 
 .flip-container, .front, .back {
 	width: 320px;
