@@ -67,15 +67,29 @@ fullScreenButton[0].addEventListener("click", launchFullScreen, false);
 
 // listener for keyboard inputs
 let body = document.querySelector('body');
+let guessArray = [];
 
 body.onkeydown = (event) => {
   if ( !event.metaKey ) {
     event.preventDefault();
   }
 
+  let newestGuess;
+  if (letters[event.keyCode]) {
+    newestGuess = letters[event.keyCode]);
+    guessArray.push(newestGuess);
+  }
+
   document.querySelector('.developer-display').innerHTML = event.keyCode;
   document.querySelector('.guess-display').innerHTML =
-    letters[event.keyCode] || "";
+    newestGuess || "";
+
+  let answerArray;
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] === newestGuess) {
+      answerArray.push(i);
+    }
+  }
 };
 
 let letters = {

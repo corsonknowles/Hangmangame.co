@@ -16,5 +16,5 @@ _ _ _ _ _ _ _ _
 flip
 h a n g m a n
 
-Look at the javascript for this and align CSS with it:
+Emulate the javascript for this and align CSS to match it:
 https://desandro.github.io/3dtransforms/docs/card-flip.html
