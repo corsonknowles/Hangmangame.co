@@ -3,29 +3,36 @@ document.addEventListener('DOMContentLoaded', () => {
   // set up file reader http://www.javascripture.com/FileReader
 
 
-  let fs = require("fs");
-  let text = fs.readFileSync("./lib/dictionary.txt").toString('utf-8');
-  let textByLine = text.split("\n")
+  // let fs = require("fs");
+  // let text = fs.readFileSync("./lib/dictionary.txt").toString('utf-8');
+  // let textByLine = text.split("\n")
 
   let guessedLetters = [];
-  let word = "hangman";
-  // Render greeting screen
+
+  let word = "andy";
+
   let hangman = () => {
-    let guessZone = document.getElementById('guess');
-    let addLetter = document.createElement('ul');
+    let guessZone = document.getElementsByClassName('guess')[0];
 
     for (let i = 0; i < word.length; i++) {
-      addLetter.setAttribute('name', 'each_letter');
-      guessLetter = document.createElement('li');
-      guessLetter.setAttribute('class', 'guess');
-      if (word[i] === "_") {
-        guessLetter.innerHTML = "_";
-        space = 1;
-      } else {
-        guessLetter.innerHTML = "_";
-      }
+      let addLetter = document.createElement('div');
+      addLetter.setAttribute('class', 'flip-container')
+      addLetter.setAttribute('ontouchstart', "this.classList.toggle('hover');");
+      addLetter.setAttribute('id', i);
+      let flipper = document.createElement('div');
+      flipper.setAttribute('class', 'flipper');
+      addLetter.appendChild(flipper);
+      let blankFace = document.createElement('div');
+      blankFace.setAttribute('class', 'front letters');
+      blankFace.innerHTML = "_";
+      flipper.appendChild(blankFace);
+      let letterFace = document.createElement('div');
+      letterFace.setAttribute('class', 'back letters');
+      letterFace.innerHTML = word[i];
+      flipper.appendChild(letterFace);
 
-      guessedLetters.push(guessLetter);
+      guessZone.appendChild(addLetter);
+
 
     }
   }
@@ -37,10 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Find the right method, call on correct element
-let launchFullScreen = () => {
-  let element = document.getElementsByTagName("body")[0];
-
-  if (element.requestFullScreen) {
+let toggleFullScreen = (element) => {
+  if (element === undefined) {
+    element = document.getElementsByTagName("html")[0];
+  }
+  console.log(Document.fullScreenEnabled);
+  if (Document.fullScreenEnabled) {
+    Document.exitFullscreen()
+    console.log("left full screen");
+  } else if (element.requestFullScreen) {
     element.requestFullScreen();
   } else if(element.mozRequestFullScreen) {
     element.mozRequestFullScreen();
@@ -50,10 +62,15 @@ let launchFullScreen = () => {
 }
 
 let fullScreenButton = document.getElementsByClassName("full-screen-button");
-console.log(fullScreenButton);
-fullScreenButton[0].addEventListener("click", launchFullScreen, false);
-// fullScreenButton.onclick = launchFullScreen;
+fullScreenButton[0].addEventListener("click", toggleFullScreen, false);
 
+let toggleText = (element) => {
+  if (element.innerHTML === "Go Full Screen") {
+    element.innerHTML = "Exit Full Screen"
+  } else if (element.innerHTML === "Exit Full Screen") {
+    element.innerHTML = "Go Full Screen"
+  }
+}
 
 
 
@@ -76,7 +93,7 @@ body.onkeydown = (event) => {
 
   let newestGuess;
   if (letters[event.keyCode]) {
-    newestGuess = letters[event.keyCode]);
+    newestGuess = letters[event.keyCode];
     guessArray.push(newestGuess);
   }
 
@@ -84,12 +101,14 @@ body.onkeydown = (event) => {
   document.querySelector('.guess-display').innerHTML =
     newestGuess || "";
 
-  let answerArray;
+  let answerArray = [];
   for (let i = 0; i < word.length; i++) {
     if (word[i] === newestGuess) {
       answerArray.push(i);
     }
   }
+  document.querySelectorAll(newestGuess).classList.toggle("flip")
+
 };
 
 let letters = {

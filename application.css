@@ -3,6 +3,13 @@ body {
 	font-family: 'Montserrat', Arial, Helvetica, 'sans-serif';
 }
 
+section {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	
+}
+
 .letters {
 	font-size: 40vmin;
 	text-align: center;
