@@ -1,15 +1,65 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // set up file reader http://www.javascripture.com/FileReader
 
-
+  let word;
   // let fs = require("fs");
   // let text = fs.readFileSync("./lib/dictionary.txt").toString('utf-8');
   // let textByLine = text.split("\n")
 
+
+
+  function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+  }
+
+  let textByLine = readTextFile("./lib/dictionary.txt");
+
+  let rand = textByLine[Math.floor(Math.random() * textByLine.length)];
+  word = rand;
+
+  // function get_parameters() {
+  //   alert('hi');
+  //   let xhr = new XMLHttpRequest();
+  //
+  //   xhr.addEventListener('readystatechange', (output) => {
+  //     if (xhr.readyState === 4) {
+  //       let response = xhr.responseText;
+  //       let lines = response.split('\n');
+  //       let rand = lines[Math.floor(Math.random() * lines.length)];
+  //       word = rand;
+  //     }
+  //   });
+  //
+  //   xhr.open('GET', './lib/dictionary.txt', true);
+  //   xhr.send();
+  // }
+
+
+
+
+
+
   let guessedLetters = [];
 
-  let word = "andy";
+  // let word = "myriad";
+  word = word.toLowerCase();
 
   let hangman = () => {
     let guessZone = document.getElementsByClassName('guess')[0];
@@ -17,18 +67,23 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < word.length; i++) {
       let addLetter = document.createElement('div');
       addLetter.setAttribute('class', 'flip-container')
-      addLetter.setAttribute('ontouchstart', "this.classList.toggle('hover');");
+      // addLetter.setAttribute('ontouchstart', "this.classList.toggle('hover');");
       addLetter.setAttribute('id', i);
       let flipper = document.createElement('div');
       flipper.setAttribute('class', 'flipper');
+      flipper.setAttribute('name', word[i]);
+      flipper.style.fontSize = `${Math.floor((100 / word.length))}vmin`;
+      console.log(`${Math.floor((100 / word.length))}vmin`);
       addLetter.appendChild(flipper);
       let blankFace = document.createElement('div');
       blankFace.setAttribute('class', 'front letters');
       blankFace.innerHTML = "_";
+      // blankFace.fontsize = `${Math.floor((30 / word.length))}vmin`;
       flipper.appendChild(blankFace);
       let letterFace = document.createElement('div');
       letterFace.setAttribute('class', 'back letters');
       letterFace.innerHTML = word[i];
+      // letterFace.fontsize = `${Math.floor((30 / word.length))}vmin`;
       flipper.appendChild(letterFace);
 
       guessZone.appendChild(addLetter);
@@ -44,12 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Find the right method, call on correct element
-let toggleFullScreen = (element) => {
-  if (element === undefined) {
-    element = document.getElementsByTagName("html")[0];
-  }
-  console.log(Document.fullScreenEnabled);
-  if (Document.fullScreenEnabled) {
+let toggleFullScreen = () => {
+  // if (element === undefined) {
+  element = document.getElementsByTagName("body")[0];
+  // }
+  console.log(Document.allowfullscreen);
+  if (Document.allowfullscreen) {
     Document.exitFullscreen()
     console.log("left full screen");
   } else if (element.requestFullScreen) {
@@ -59,6 +114,10 @@ let toggleFullScreen = (element) => {
   } else if(element.webkitRequestFullScreen) {
     element.webkitRequestFullScreen();
   }
+
+  // document.getElementsByClassName('flipper').forEach ( (element) =>
+  //   element.style.fontSize = `${Math.floor((50 / word.length))}vmin`;
+  // )
 }
 
 let fullScreenButton = document.getElementsByClassName("full-screen-button");
@@ -107,7 +166,15 @@ body.onkeydown = (event) => {
       answerArray.push(i);
     }
   }
-  document.querySelectorAll(newestGuess).classList.toggle("flip")
+
+  document.getElementsByName(newestGuess).forEach ( (element) => {
+     console.log(element);
+     element.classList.add("flipped");
+   }
+  )
+  // classList.toggle("flipped")
+  // console.log(newestGuess);
+  // console.log(document.getElementsByName(newestGuess));
 
 };
 
