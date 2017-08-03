@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
 
   let loadFile = () => {
-    debugger
+  
       reader.open('get', 'lib/dictionary.txt', true);
       reader.onreadystatechange = displayContents;
       reader.send(null);
