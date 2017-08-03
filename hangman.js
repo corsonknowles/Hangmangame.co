@@ -138,8 +138,11 @@ body.onkeydown = (event) => {
   // classList.toggle("flipped")
   // console.log(newestGuess);
   // console.log(document.getElementsByName(newestGuess));
-  };
 
   let guessDisplay = document.getElementById("guess-array");
+  console.log(guessDisplay);
   guessDisplay.innerHTML = String(uniquify(guessArray));
+  };
+
+
 });

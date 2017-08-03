@@ -26,8 +26,7 @@ module.exports = {
   context: __dirname,
   entry: './hangman.js',
   output: {
-    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
-    filename: 'bundle.js'
+    filename: './bundle.js'
   },
   plugins: plugins,
   resolve: {
