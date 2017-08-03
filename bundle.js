@@ -172,9 +172,26 @@ const uniquify = (array) => {
       return !(element in seen) && (seen[element] = 1);
     };
   }());
-  return result;
+  return result.sort();
 }
 
+let alphabet = Object.keys(letters).map( (key) => letters[key] );
+
+// create alphabet ul
+let buttonMaker = function () {
+  let makeButtons = document.getElementById('buttons');
+  let eachLetter = document.createElement('ul');
+
+  for (let i = 0; i < alphabet.length; i++) {
+    let list = document.createElement('button');
+    list.id = alphabet[i];
+    list.innerHTML = alphabet[i];
+    makeButtons.appendChild(eachLetter);
+    eachLetter.appendChild(list);
+  }
+}
+
+buttonMaker();
 
 // listener for keyboard inputs
 let body = document.querySelector('body');
@@ -203,7 +220,6 @@ body.onkeydown = (event) => {
   }
 
   document.getElementsByName(newestGuess).forEach ( (element) => {
-    // console.log(element);
     element.classList.add("flipped");
   })
 
@@ -212,11 +228,18 @@ body.onkeydown = (event) => {
   // console.log(document.getElementsByName(newestGuess));
 
   let guessDisplay = document.getElementById("guess-array");
-  console.log(guessDisplay);
   guessDisplay.innerHTML = String(uniquify(guessArray));
+
+  let highlightButton = document.getElementById(String(letters[event.keyCode]));
+  console.log(letters[event.keyCode]);
+  if (highlightButton) {
+    highlightButton.classList.add("guessed")
+  }; 
+
+//end of event listener
   };
 
-
+//end of doc
 });
 
 

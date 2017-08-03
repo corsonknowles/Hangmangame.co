@@ -26,26 +26,25 @@
       </script>
 
       <div>
-        <button type="button" name="button" class="full-screen-button" > Go Full Screen</button>
+        <button hidden type="button" name="button" class="full-screen-button" > Go Full Screen</button>
       </div>
+      <div hidden class="developer-display">dev display</div>
 
-      <div class="developer-display">dev display</div>
-      <div class="guess-display">guess display</div>
       <main>
         <section class="guess"></section>
 
-        <!-- <div class="flip-container " ontouchstart="this.classList.toggle('hover');">
-        	<div class="flipper">
-        		<div class="front letters">
-        			_ _ _ _ _ _ _
-        		</div>
-        		<div class="back letters">
-        			H A N G M A N
-        		</div>
-        	</div>
-        </div> -->
+        <section>
+        <div class="guess-display">guess display</div>
+        </section>
+
+        <section>
+          <div id="buttons"></div>
+        </section>
+
         <section id="guess-array" class="guesses"> </section>
+
         <section id="demo" class="demo"> </section>
+
       </main>
     </div>
   </body>
