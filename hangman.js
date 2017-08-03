@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Find the right method, call on correct element
 let toggleFullScreen = () => {
-  let element = document.getElementsByTagName("html")[0];
+  let element = document.getElementById("fullscreen");
   if (element.requestFullScreen) {
     element.requestFullScreen();
   } else if(element.mozRequestFullScreen) {
