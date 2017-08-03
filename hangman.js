@@ -1,11 +1,13 @@
-
+import dictionaryArray from './lib/dictionary.js'
 
 document.addEventListener('DOMContentLoaded', () => {
 
   // set up file reader http://www.javascripture.com/FileReader
   let word = "conceptual";
-  var file = Parse.link('lib.dictionary.txt');
-  var content = file.read().getContent();
+  word = dictionaryArray[Math.floor(Math.random() * dictionaryArray.length)];
+
+  // var file = Parse.link('lib.dictionary.txt');
+  // var content = file.read().getContent();
 
   // function FileHelper() {
   //   FileHelper.readStringFromFileAtPath = function () {
