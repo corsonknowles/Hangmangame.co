@@ -7,9 +7,9 @@
 
     <link href="application.css" type="text/css" rel="stylesheet" />
   </head>
-  <body>
+  <body class="rainbow">
     <!-- allow user dictionary   -->
-    <input type='file' accept='text/plain' onchange='openFile(event)'><br>
+    <input hidden type='file' accept='text/plain' onchange='openFile(event)'><br>
     <img id='output'>
     <script>
       var openFile = function(event) {
@@ -30,19 +30,21 @@
 
     <div class="developer-display">dev display</div>
     <div class="guess-display">guess display</div>
+    <main>
+      <section class="guess"></section>
 
-    <section class="guess"></section>
-
-    <!-- <div class="flip-container " ontouchstart="this.classList.toggle('hover');">
-    	<div class="flipper">
-    		<div class="front letters">
-    			_ _ _ _ _ _ _
-    		</div>
-    		<div class="back letters">
-    			H A N G M A N
-    		</div>
-    	</div>
-    </div> -->
-
+      <!-- <div class="flip-container " ontouchstart="this.classList.toggle('hover');">
+      	<div class="flipper">
+      		<div class="front letters">
+      			_ _ _ _ _ _ _
+      		</div>
+      		<div class="back letters">
+      			H A N G M A N
+      		</div>
+      	</div>
+      </div> -->
+      <section id="guess-array" class="guesses"> </section>
+      <section id="demo" class="demo"> </section>
+    </main>
   </body>
 </html>

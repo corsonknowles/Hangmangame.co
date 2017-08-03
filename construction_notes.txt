@@ -1,3 +1,5 @@
+shimmer text: https://codepen.io/redouglas/pen/gobsm
+
 textillate.js.org
 use rotate in and rotate out
 
