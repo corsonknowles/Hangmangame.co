@@ -5,34 +5,79 @@ document.addEventListener('DOMContentLoaded', () => {
   // set up file reader http://www.javascripture.com/FileReader
 
   let word;
+
+  let reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+
+  let loadFile = () => {
+      reader.open('get', 'lib/dictionary.txt', true);
+      reader.onreadystatechange = displayContents;
+      reader.send(null);
+  }
+
+  let displayContents = () => {
+      if ( reader.readyState == 4 ) {
+          let textByLine = reader.responseText.split('\n');
+          let rand = textByLine[Math.floor(Math.random() * textByLine.length)];
+          word = rand;
+          // let element = document.getElementById('main');
+          // element.innerHTML = reader.responseText;
+      }
+  }
+
+  loadFile();
+  displayContents();
+
+
+
+  // let xhr = new XMLHttpRequest();
+  // xhr.onload = function() {
+  //   // console.log(this.responseXML.title);
+  //
+  //   let textByLine = this.responseXML.split('\n');
+  //   let rand = textByLine[Math.floor(Math.random() * textByLine.length)];
+  //   word = rand;
+  // }
+  // xhr.open("GET", "https://raw.githubusercontent.com/corsonknowles/Hangmangame.co/master/lib/dictionary.txt");
+  // xhr.responseType = "document";
+  // xhr.send();
+
+
+//   $.ajax({
+//     url: 'lib/dictionary.txt'
+//   }).then( (data) => (
+//   console.log(data);
+//   )
+// )
+
+
   // let fs = require("fs");
   // let text = fs.readFileSync("./lib/dictionary.txt").toString('utf-8');
   // let textByLine = text.split("\n")
 
 
+//
+//   function readTextFile(file)
+// {
+//     var rawFile = new XMLHttpRequest();
+//     rawFile.open("GET", file, false);
+//     rawFile.onreadystatechange = function ()
+//     {
+//         if(rawFile.readyState === 4)
+//         {
+//             if(rawFile.status === 200 || rawFile.status == 0)
+//             {
+//                 var allText = rawFile.responseText;
+//                 alert(allText);
+//             }
+//         }
+//     }
+//     rawFile.send(null);
+//   }
 
-  function readTextFile(file)
-{
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                alert(allText);
-            }
-        }
-    }
-    rawFile.send(null);
-  }
+  // let textByLine = readTextFile("./lib/dictionary.txt");
 
-  let textByLine = readTextFile("./lib/dictionary.txt");
-
-  let rand = textByLine[Math.floor(Math.random() * textByLine.length)];
-  word = rand;
+  // let rand = textByLine[Math.floor(Math.random() * textByLine.length)];
+  // word = rand;
 
   // function get_parameters() {
   //   alert('hi');
