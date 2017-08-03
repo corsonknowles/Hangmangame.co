@@ -1,31 +1,50 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // set up file reader http://www.javascripture.com/FileReader
+  let word = "conceptual";
+  var file = Parse.link('lib.dictionary.txt');
+  var content = file.read().getContent();
 
-  let word = "guess";
+  // function FileHelper() {
+  //   FileHelper.readStringFromFileAtPath = function () {
+  //       var request = new XMLHttpRequest();
+  //       request.open("GET", "lib/dictionary.txt", false);
+  //       request.send(null);
+  //       var returnValue = request.responseText;
+  //
+  //       return returnValue;
+  //   }
+  // }
+  //
+  // var text = FileHelper.readStringFromFileAtPath ( "mytext.txt" );
+  // let textByLine = reader.responseText.split('\n');
+  // let rand = textByLine[Math.floor(Math.random() * textByLine.length)];
+  // word = rand;
 
-  let reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+  // let reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
 
-  let loadFile = () => {
-
-      reader.open('get', 'lib/dictionary.txt', true);
-      reader.onreadystatechange = displayContents;
-      reader.send(null);
-      // displayContents();
-  }
-
-  let displayContents = () => {
-
-      if ( reader.readyState == 4 ) {
-          let textByLine = reader.responseText.split('\n');
-          let rand = textByLine[Math.floor(Math.random() * textByLine.length)];
-          word = rand;
-          // let element = document.getElementById('main');
-          // element.innerHTML = reader.responseText;
-      }
-  }
-
-  loadFile();
+  // let loadFile = () => {
+  //
+  //     reader.open('get', 'lib/dictionary.txt', true);
+  //     reader.onreadystatechange = displayContents;
+  //     reader.send(null);
+  //     // displayContents();
+  // }
+  //
+  // let displayContents = () => {
+  //
+  //     if ( reader.readyState == 4 ) {
+  //         let textByLine = reader.responseText.split('\n');
+  //         let rand = textByLine[Math.floor(Math.random() * textByLine.length)];
+  //         word = rand;
+  //         // let element = document.getElementById('main');
+  //         // element.innerHTML = reader.responseText;
+  //     }
+  // }
+  //
+  // loadFile();
   // displayContents();
 
 
