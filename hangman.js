@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       flipper.style.fontSize = `${Math.floor((100 / word.length)) < 18 ? Math.floor((100 / word.length)): 18 }vmin`;
 
-      console.log(`${Math.floor((100 / word.length))}vmin`);
       addLetter.appendChild(flipper);
       let blankFace = document.createElement('div');
       blankFace.setAttribute('class', 'front letters');
@@ -123,6 +122,13 @@ let buttonMaker = function () {
   }
 }
 
+// handle letter
+
+handleLetter() {
+  
+}
+
+
 // invoke the buttonMaker
 buttonMaker();
 
@@ -172,6 +178,44 @@ body.onkeydown = (event) => {
 
 //end of keypress event listener
   };
+
+  handleClick = (event) => {
+
+    let buttonGuess;
+    if (event.target.id) {
+      buttonGuess = event.target.id;
+      guessArray.push(buttonGuess);
+    }
+
+    document.querySelector('.developer-display').innerHTML = event.target.id;
+
+    guessDisplay.innerHTML = `You guessed: ${buttonGuess || "-"}`;
+
+    for (let i = 0; i < word.length; i++) {
+      if (word[i] === buttonGuess) {
+        answerArray.push(i);
+      }
+    }
+
+    document.getElementsByName(buttonGuess).forEach ( (element) => {
+      element.classList.add("flipped");
+    })
+
+    // classList.toggle("flipped")
+    // console.log(newestGuess);
+    // console.log(document.getElementsByName(newestGuess));
+
+    // let guessRecords = document.getElementById("guess-array");
+    // guessRecords.innerHTML = String(uniquify(guessArray));
+
+    let highlightButton = document.getElementById(String(event.target.id));
+
+    if (highlightButton) {
+      highlightButton.classList.add("guessed")
+    };
+
+  //end of keypress event listener
+    };
 
   // does not focus keyboard for mobile
   // document.getElementById("hidden-input").focus();
