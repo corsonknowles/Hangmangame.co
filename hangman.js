@@ -62,9 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
   // writing to the page
-  document.getElementById("demo").innerHTML = "You may guess a letter <br /> Simply type with your keyboard"
+  document.getElementById("demo").innerHTML = "You may guess a letter <br /> Simply type with your keyboard or press a letter button"
 
   // list of keyboard codes for letters
   let letters = {
@@ -107,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return result.sort();
   }
 
+  // make an array of all the values in the letters object
   let alphabet = Object.keys(letters).map( (key) => letters[key] );
 
   // click event listener
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
       guessArray.push(buttonGuess);
     }
 
-    if (buttonGuess) {
+    if (buttonGuess && !found) {
       handleLetter(buttonGuess);
     };
 
@@ -155,11 +155,16 @@ document.addEventListener('DOMContentLoaded', () => {
     guessDisplay.innerHTML = `You guessed: ${newestGuess || "-"}`;
 
     //store the answers
-    for (let i = 0; i < word.length; i++) {
-      if (word[i] === newestGuess) {
-        answerArray.push(i);
+    if (!answerArray.includes(newestGuess)) {
+      for (let i = 0; i < word.length; i++) {
+        if (word[i] === newestGuess) {
+          answerArray.push(newestGuess);
+        }
       }
     }
+    console.log(answerArray);
+    console.log(answerArray.length);
+    console.log(word.length);
 
     document.getElementsByName(newestGuess).forEach ( (element) => {
       element.classList.add("flipped");
@@ -171,7 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
       highlightButton.classList.add("guessed")
     };
 
-    if word.length === answerArray.length {
+    if (word.length === answerArray.length) {
+      console.log(word);
+      console.log(answerArray);
       found = true;
     }
 
@@ -189,7 +196,9 @@ document.addEventListener('DOMContentLoaded', () => {
       newestGuess = letters[event.keyCode];
       guessArray.push(newestGuess);
     }
-    handleLetter(newestGuess);
+    if (!found) {
+      handleLetter(newestGuess);
+    }
   //end of keypress event listener
   };
 
