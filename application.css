@@ -127,7 +127,7 @@ h1 {
   /* align-items: center; */
   display: flex;
   justify-content: center;
-  padding-bottom: 4vmin;
+  padding-bottom: 3vmin;
   margin-top: -1vmin;
 }
 
@@ -274,8 +274,8 @@ footer {
 .demo {
 	text-align: center;
 	height: 12vmin;
-	padding: 5px;
-	margin: 5px;
+	padding-top: 5px;
+	margin-top: 5px;
 }
 
 .score {
