@@ -311,9 +311,9 @@ footer {
 	background: #eee;
 	border-radius: 5px;
 	padding: 5px;
-	width: 75%;
+	width: 72%;
 	min-height: 7%;
-	padding-bottom: 10px;
+	padding-bottom: 12px;
 	margin: 10px;
 }
 
@@ -338,7 +338,7 @@ footer {
 .keyboard__row {
     display: inline-block;
 		text-align: center;
-    height: 3em;
+    height: 2em;
     margin: 0.2em;
 }
 
@@ -351,7 +351,7 @@ footer {
     border-radius: 0.3em;
     margin: 0.2em;
     padding: 0.2em;
-    width: 3.3em;
+    width: 3em;
     height: 100%;
     box-sizing: border-box;
     cursor: pointer;
