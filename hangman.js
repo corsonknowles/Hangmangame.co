@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let word = "hangman";
   word = dictionaryArray[Math.floor(Math.random() * dictionaryArray.length)];
 
-  // let guessedLetters = [];
+  // check case, just in case
   word = word.toLowerCase();
 
-  let hangman = () => {
+  const hangman = () => {
     let guessZone = document.getElementsByClassName('guess')[0];
 
     for (let i = 0; i < word.length; i++) {
@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   hangman();
 
-// Find the right method, call on correct element
-let toggleFullScreen = () => {
+// select the right fullscreen method for each browser
+const toggleFullScreen = () => {
   let element = document.getElementById("fullscreen");
   if (element.requestFullScreen) {
     element.requestFullScreen();
@@ -61,7 +61,7 @@ let toggleText = (element) => {
 
 
 // writing to the page
-document.getElementById("demo").innerHTML = "You may guess a letter. <br /> Simply type with your keyboard"
+document.getElementById("demo").innerHTML = "You may guess a letter <br /> Simply type with your keyboard"
 
 // list of keyboard codes for letters
 let letters = {
@@ -93,6 +93,7 @@ let letters = {
   90 : "z"
 }
 
+// filter method so array of guesses does not retain repeat guesses
 const uniquify = (array) => {
   let result = array.filter(function() {
     let seen = {};
@@ -105,7 +106,7 @@ const uniquify = (array) => {
 
 let alphabet = Object.keys(letters).map( (key) => letters[key] );
 
-// create alphabet ul
+// render list of alphabet buttons
 let buttonMaker = function () {
   let makeButtons = document.getElementById('buttons');
   let eachLetter = document.createElement('ul');
@@ -114,11 +115,13 @@ let buttonMaker = function () {
     let list = document.createElement('button');
     list.id = alphabet[i];
     list.innerHTML = alphabet[i];
+    list.name = "button-letters";
     makeButtons.appendChild(eachLetter);
     eachLetter.appendChild(list);
   }
 }
 
+// invoke the buttonMaker
 buttonMaker();
 
 // listener for keyboard inputs
@@ -159,7 +162,7 @@ body.onkeydown = (event) => {
   guessDisplay.innerHTML = String(uniquify(guessArray));
 
   let highlightButton = document.getElementById(String(letters[event.keyCode]));
-  console.log(letters[event.keyCode]);
+
   if (highlightButton) {
     highlightButton.classList.add("guessed")
   };
@@ -167,5 +170,24 @@ body.onkeydown = (event) => {
 //end of keypress event listener
   };
   document.getElementById("hidden-input").focus();
+
+
+  const resetWord = () => {
+    let buttonsToReset = document.getElementsByName("button-letters");
+
+    if (buttonsToReset) {
+      buttonsToReset.forEach ((button) => {
+        button.classList.remove("guessed");
+      });
+    word = dictionaryArray[Math.floor(Math.random() * dictionaryArray.length)];
+    let resetZone = document.getElementsByClassName('guess')[0];
+    resetZone.innerHTML = "";
+    hangman();
+    }
+  }
+  let resetButton = document.getElementsByClassName("reset-button");
+  resetButton[0].addEventListener("click", resetWord, false);
+
+
 //end of doc
 });

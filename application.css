@@ -52,7 +52,7 @@ h2 {
 
 .guess-display {
 	font-size: 5vmin;
-
+	min-height: 7vmin;
 }
 
 .guesses {
