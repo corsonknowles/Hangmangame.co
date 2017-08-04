@@ -200,6 +200,7 @@ buttonMaker();
 let body = document.querySelector('body');
 let guessArray = [];
 let answerArray = [];
+let guessDisplay = document.querySelector('.guess-display');
 
 body.onkeydown = (event) => {
   if ( !event.metaKey ) {
@@ -213,8 +214,8 @@ body.onkeydown = (event) => {
   }
 
   document.querySelector('.developer-display').innerHTML = event.keyCode;
-  document.querySelector('.guess-display').innerHTML =
-    newestGuess || "";
+
+  guessDisplay.innerHTML = `You guessed: ${newestGuess || "-"}`;
 
   for (let i = 0; i < word.length; i++) {
     if (word[i] === newestGuess) {
@@ -230,8 +231,8 @@ body.onkeydown = (event) => {
   // console.log(newestGuess);
   // console.log(document.getElementsByName(newestGuess));
 
-  let guessDisplay = document.getElementById("guess-array");
-  guessDisplay.innerHTML = String(uniquify(guessArray));
+  // let guessRecords = document.getElementById("guess-array");
+  // guessRecords.innerHTML = String(uniquify(guessArray));
 
   let highlightButton = document.getElementById(String(letters[event.keyCode]));
 
@@ -241,7 +242,9 @@ body.onkeydown = (event) => {
 
 //end of keypress event listener
   };
-  document.getElementById("hidden-input").focus();
+
+  // does not focus keyboard for mobile
+  // document.getElementById("hidden-input").focus();
 
 
   const resetWord = () => {
@@ -254,6 +257,7 @@ body.onkeydown = (event) => {
     word = __WEBPACK_IMPORTED_MODULE_0__lib_dictionary_js__["a" /* default */][Math.floor(Math.random() * __WEBPACK_IMPORTED_MODULE_0__lib_dictionary_js__["a" /* default */].length)];
     let resetZone = document.getElementsByClassName('guess')[0];
     resetZone.innerHTML = "";
+    guessDisplay.innerHTML = "You guessed: -"
     hangman();
     }
   }
