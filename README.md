@@ -3,7 +3,7 @@
 ### Background
 
 Hangman is a Victorian era word game of very obscure origin. It is sometimes (and much more rarely) also known as Gallows.
-In keeping with this theme, my rendition of Hangman will be in black and white. However, for my rendition, I wished to remove most of this treasured game's ghastly trappings and focus on a clean, elegant, pleasant to use interface. It will be vaguely reminiscent of the original command line games played on a Tandy 1000, instead rendered at full browser-width in a responsive format.
+In keeping with this theme, my rendition of Hangman is in black and white. However, for this version, I wished to remove most of this treasured game's ghastly trappings and focus on a clean, elegant, pleasant to use interface. It is designed to be vaguely reminiscent of the original command line games played on a Tandy 1000, now rendered at full browser-width in a responsive format.
 
 I made this game as a demonstration of the power of the new CSS3 card flips. You can simply press your keyboard or tap or press the keys on the screen to reveal successful guesses. The resulting animation is handled by changing the CSS state with JavaScript, once triggered the CSS handles the animation.
 
@@ -15,6 +15,7 @@ I made this game as a demonstration of the power of the new CSS3 card flips. You
 - [ ] Your letters pressed are held tabbed down in the online keyboard display, until you reset the game.
 - [ ] Your score is tracked, but no penalties are assessed for missing letters.
 - [ ] Your most recent guess is prominently displayed, just above the online keyboard.
+- [ ] The size of the blanks and letters for each word are dynamically set by the length of the word chosen.
 
 ![Hangman](/docs/images/Hangman.png)
 
