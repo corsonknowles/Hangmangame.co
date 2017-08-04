@@ -219,9 +219,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let resetZone = document.getElementsByClassName('guess')[0];
     resetZone.innerHTML = "";
     guessDisplay.innerHTML = "You guessed: -"
+    score.innerHTML = `0/26`;
     found = false;
     answerArray = [];
     guessArray = [];
+
     hangman();
     }
   }
