@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // writing to the page
-  document.getElementById("demo").innerHTML = "You may guess a letter <br /> Simply type with your keyboard or press a letter button"
+  document.getElementById("demo").innerHTML = "You may guess a letter <br /> Simply type with your keyboard"
 
   // list of keyboard codes for letters
   let letters = {
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     90 : "z"
   }
 
-  // filter method so array of guesses does not retain repeat guesses
+  // make a filter method so array of guesses does not retain repeat guesses
   const uniquify = (array) => {
     let result = array.filter(function() {
       let seen = {};
@@ -115,7 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let buttonGuess;
     if (event.target.id) {
       buttonGuess = event.target.id;
-      guessArray.push(buttonGuess);
+      if (!guessArray.includes(buttonGuess)) {
+        guessArray.push(buttonGuess);
+      }
     }
 
     if (buttonGuess && !found) {
@@ -129,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let buttonMaker = function () {
     let makeButtons = document.getElementById('buttons');
     let eachLetter = document.createElement('ul');
+    eachLetter.classList.add("keyboard__row")
 
     for (let i = 0; i < alphabet.length; i++) {
       let list = document.createElement('button');
@@ -136,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
       list.innerHTML = alphabet[i];
       list.name = "button-letters";
       list.addEventListener("click", handleClick, false);
+      list.classList.add("key--letter")
       makeButtons.appendChild(eachLetter);
       eachLetter.appendChild(list);
     }
@@ -148,13 +152,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let guessArray = [];
   let answerArray = [];
   let guessDisplay = document.querySelector('.guess-display');
-
+  let score = document.querySelector('.score');
   // handle each letter, whether it is a click or a press
   let handleLetter = function (newestGuess) {
 
     guessDisplay.innerHTML = `You guessed: ${newestGuess || "-"}`;
+    score.innerHTML = `${guessArray.length}/26`;
 
-    //store the answers
+    // store correct answers
     if (!answerArray.includes(newestGuess)) {
       for (let i = 0; i < word.length; i++) {
         if (word[i] === newestGuess) {
@@ -162,9 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     }
-    console.log(answerArray);
-    console.log(answerArray.length);
-    console.log(word.length);
 
     document.getElementsByName(newestGuess).forEach ( (element) => {
       element.classList.add("flipped");
@@ -176,14 +178,12 @@ document.addEventListener('DOMContentLoaded', () => {
       highlightButton.classList.add("guessed")
     };
 
+    // logic gate to record the end of the game
     if (word.length === answerArray.length) {
-      console.log(word);
-      console.log(answerArray);
       found = true;
     }
 
   }
-
 
   // listener for keyboard inputs
   body.onkeydown = (event) => {
@@ -194,7 +194,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let newestGuess;
     if (letters[event.keyCode]) {
       newestGuess = letters[event.keyCode];
-      guessArray.push(newestGuess);
+      if (!guessArray.includes(newestGuess)) {
+        guessArray.push(newestGuess);
+      }
     }
     if (!found) {
       handleLetter(newestGuess);
@@ -218,6 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     resetZone.innerHTML = "";
     guessDisplay.innerHTML = "You guessed: -"
     found = false;
+    answerArray = [];
     hangman();
     }
   }

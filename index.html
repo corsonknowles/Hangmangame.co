@@ -24,7 +24,7 @@
           reader.readAsText(input.files[0]);
         };
       </script>
-      <h1>Hangman</h1>
+      <h1><a href="http://hangmangame.co">Hangman</a></h1>
       <section hidden id="demo" class="demo"> </section>
 
       <div hidden class="developer-display">dev display</div>
@@ -32,14 +32,17 @@
       <main>
         <section class="guess"></section>
 
-        <section class="guess-display">You guessed: -</section>
-        <section><div id="buttons"></div></section>
+        <div class="flex-section">
+          <section class="guess-display">You guessed: -</section>
+          <section class="button-section"><div id="buttons"></div> </section>
 
-        <section hidden id="guess-array" class="guesses"> </section>
+          <section hidden id="guess-array" class="guesses"> </section>
 
-        <section hidden id="mobile-prompt" class="mobile-prompt"><input hidden id="hidden-input" type="text" name="" value=""> </input> </section>
-        <section> <button type="button" name="reset-button" class="reset-button" id="reset-button" >Get New Word</button> </section>
-        <section> <button hidden type="button" name="button" class="full-screen-button" >Go Full Screen</button> </section>
+          <section hidden id="mobile-prompt" class="mobile-prompt"><input hidden id="hidden-input" type="text" name="" value=""> </input> </section>
+          <section> <button type="button" name="reset-button" class="reset-button" id="reset-button" >Get New Word</button> </section>
+          <section> <button hidden type="button" name="button" class="full-screen-button" >Go Full Screen</button> </section>
+          <section class="score">0 / 26</section>
+        </div>
       </main>
     </div>
     <footer>
