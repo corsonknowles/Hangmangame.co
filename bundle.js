@@ -238,7 +238,7 @@ body.onkeydown = (event) => {
 
 //end of keypress event listener
   };
-  prompt();
+  document.getElementById("hidden-input").focus();
 //end of doc
 });
 
