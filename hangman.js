@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // writing to the page
-  document.getElementById("demo").innerHTML = "You may guess a letter <br /> Simply type with your keyboard"
+  document.getElementById("demo").innerHTML = "You may guess a letter <br /> Simply tap or type with your keyboard"
 
   // list of keyboard codes for letters
   let letters = {
