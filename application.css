@@ -51,7 +51,7 @@ h2 {
 }
 
 .guess-display {
-	font-size: 10vmin;
+	font-size: 5vmin;
 
 }
 
@@ -90,8 +90,8 @@ h2 {
 
 .flip-container, .front, .back {
 	width: 320px;
-	min-height: 100px;
-	height: 20vh;
+	min-height: 200px;
+	height: 20vmin;
 }
 
 /* flip speed goes here */
