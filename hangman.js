@@ -4,12 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // set up file reader http://www.javascripture.com/FileReader
   let word = "hangman";
+  let found = false;
   word = dictionaryArray[Math.floor(Math.random() * dictionaryArray.length)];
 
   // check case, just in case
   word = word.toLowerCase();
 
   const hangman = () => {
+
     let guessZone = document.getElementsByClassName('guess')[0];
 
     for (let i = 0; i < word.length; i++) {
@@ -37,149 +39,78 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   hangman();
 
-// select the right fullscreen method for each browser
-const toggleFullScreen = () => {
-  let element = document.getElementById("fullscreen");
-  if (element.requestFullScreen) {
-    element.requestFullScreen();
-  } else if(element.mozRequestFullScreen) {
-    element.mozRequestFullScreen();
-  } else if(element.webkitRequestFullScreen) {
-    element.webkitRequestFullScreen();
-  }
-}
-
-let fullScreenButton = document.getElementsByClassName("full-screen-button");
-fullScreenButton[0].addEventListener("click", toggleFullScreen, false);
-
-let toggleText = (element) => {
-  if (element.innerHTML === "Go Full Screen") {
-    element.innerHTML = "Exit Full Screen"
-  } else if (element.innerHTML === "Exit Full Screen") {
-    element.innerHTML = "Go Full Screen"
-  }
-}
-
-
-// writing to the page
-document.getElementById("demo").innerHTML = "You may guess a letter <br /> Simply type with your keyboard"
-
-// list of keyboard codes for letters
-let letters = {
-  65 : "a",
-  66 : "b",
-  67 : "c",
-  68 : "d",
-  69 : "e",
-  70 : "f",
-  71 : "g",
-  72 : "h",
-  73 : "i",
-  74 : "j",
-  75 : "k",
-  76 : "l",
-  77 : "m",
-  78 : "n",
-  79 : "o",
-  80 : "p",
-  81 : "q",
-  82 : "r",
-  83 : "s",
-  84 : "t",
-  85 : "u",
-  86 : "v",
-  87 : "w",
-  88 : "x",
-  89 : "y",
-  90 : "z"
-}
-
-// filter method so array of guesses does not retain repeat guesses
-const uniquify = (array) => {
-  let result = array.filter(function() {
-    let seen = {};
-    return function(element, index, array) {
-      return !(element in seen) && (seen[element] = 1);
-    };
-  }());
-  return result.sort();
-}
-
-let alphabet = Object.keys(letters).map( (key) => letters[key] );
-
-// render list of alphabet buttons
-let buttonMaker = function () {
-  let makeButtons = document.getElementById('buttons');
-  let eachLetter = document.createElement('ul');
-
-  for (let i = 0; i < alphabet.length; i++) {
-    let list = document.createElement('button');
-    list.id = alphabet[i];
-    list.innerHTML = alphabet[i];
-    list.name = "button-letters";
-    makeButtons.appendChild(eachLetter);
-    eachLetter.appendChild(list);
-  }
-}
-
-// handle letter
-
-handleLetter() {
-  
-}
-
-
-// invoke the buttonMaker
-buttonMaker();
-
-// listener for keyboard inputs
-let body = document.querySelector('body');
-let guessArray = [];
-let answerArray = [];
-let guessDisplay = document.querySelector('.guess-display');
-
-body.onkeydown = (event) => {
-  if ( !event.metaKey ) {
-    event.preventDefault();
-  }
-
-  let newestGuess;
-  if (letters[event.keyCode]) {
-    newestGuess = letters[event.keyCode];
-    guessArray.push(newestGuess);
-  }
-
-  document.querySelector('.developer-display').innerHTML = event.keyCode;
-
-  guessDisplay.innerHTML = `You guessed: ${newestGuess || "-"}`;
-
-  for (let i = 0; i < word.length; i++) {
-    if (word[i] === newestGuess) {
-      answerArray.push(i);
+  // select the right fullscreen method for each browser
+  const toggleFullScreen = () => {
+    let element = document.getElementById("fullscreen");
+    if (element.requestFullScreen) {
+      element.requestFullScreen();
+    } else if(element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if(element.webkitRequestFullScreen) {
+      element.webkitRequestFullScreen();
     }
   }
 
-  document.getElementsByName(newestGuess).forEach ( (element) => {
-    element.classList.add("flipped");
-  })
+  let fullScreenButton = document.getElementsByClassName("full-screen-button");
+  fullScreenButton[0].addEventListener("click", toggleFullScreen, false);
 
-  // classList.toggle("flipped")
-  // console.log(newestGuess);
-  // console.log(document.getElementsByName(newestGuess));
+  let toggleText = (element) => {
+    if (element.innerHTML === "Go Full Screen") {
+      element.innerHTML = "Exit Full Screen"
+    } else if (element.innerHTML === "Exit Full Screen") {
+      element.innerHTML = "Go Full Screen"
+    }
+  }
 
-  // let guessRecords = document.getElementById("guess-array");
-  // guessRecords.innerHTML = String(uniquify(guessArray));
 
-  let highlightButton = document.getElementById(String(letters[event.keyCode]));
+  // writing to the page
+  document.getElementById("demo").innerHTML = "You may guess a letter <br /> Simply type with your keyboard"
 
-  if (highlightButton) {
-    highlightButton.classList.add("guessed")
-  };
+  // list of keyboard codes for letters
+  let letters = {
+    65 : "a",
+    66 : "b",
+    67 : "c",
+    68 : "d",
+    69 : "e",
+    70 : "f",
+    71 : "g",
+    72 : "h",
+    73 : "i",
+    74 : "j",
+    75 : "k",
+    76 : "l",
+    77 : "m",
+    78 : "n",
+    79 : "o",
+    80 : "p",
+    81 : "q",
+    82 : "r",
+    83 : "s",
+    84 : "t",
+    85 : "u",
+    86 : "v",
+    87 : "w",
+    88 : "x",
+    89 : "y",
+    90 : "z"
+  }
 
-//end of keypress event listener
-  };
+  // filter method so array of guesses does not retain repeat guesses
+  const uniquify = (array) => {
+    let result = array.filter(function() {
+      let seen = {};
+      return function(element, index, array) {
+        return !(element in seen) && (seen[element] = 1);
+      };
+    }());
+    return result.sort();
+  }
 
-  handleClick = (event) => {
+  let alphabet = Object.keys(letters).map( (key) => letters[key] );
+
+  // click event listener
+  let handleClick = (event) => {
 
     let buttonGuess;
     if (event.target.id) {
@@ -187,39 +118,84 @@ body.onkeydown = (event) => {
       guessArray.push(buttonGuess);
     }
 
-    document.querySelector('.developer-display').innerHTML = event.target.id;
+    if (buttonGuess) {
+      handleLetter(buttonGuess);
+    };
 
-    guessDisplay.innerHTML = `You guessed: ${buttonGuess || "-"}`;
+  //end of button click event listener
+  };
 
+  // render list of alphabet buttons
+  let buttonMaker = function () {
+    let makeButtons = document.getElementById('buttons');
+    let eachLetter = document.createElement('ul');
+
+    for (let i = 0; i < alphabet.length; i++) {
+      let list = document.createElement('button');
+      list.id = alphabet[i];
+      list.innerHTML = alphabet[i];
+      list.name = "button-letters";
+      list.addEventListener("click", handleClick, false);
+      makeButtons.appendChild(eachLetter);
+      eachLetter.appendChild(list);
+    }
+  }
+
+  // invoke the buttonMaker
+  buttonMaker();
+
+  let body = document.querySelector('body');
+  let guessArray = [];
+  let answerArray = [];
+  let guessDisplay = document.querySelector('.guess-display');
+
+  // handle each letter, whether it is a click or a press
+  let handleLetter = function (newestGuess) {
+
+    guessDisplay.innerHTML = `You guessed: ${newestGuess || "-"}`;
+
+    //store the answers
     for (let i = 0; i < word.length; i++) {
-      if (word[i] === buttonGuess) {
+      if (word[i] === newestGuess) {
         answerArray.push(i);
       }
     }
 
-    document.getElementsByName(buttonGuess).forEach ( (element) => {
+    document.getElementsByName(newestGuess).forEach ( (element) => {
       element.classList.add("flipped");
     })
 
-    // classList.toggle("flipped")
-    // console.log(newestGuess);
-    // console.log(document.getElementsByName(newestGuess));
-
-    // let guessRecords = document.getElementById("guess-array");
-    // guessRecords.innerHTML = String(uniquify(guessArray));
-
-    let highlightButton = document.getElementById(String(event.target.id));
+    let highlightButton = document.getElementById(newestGuess);
 
     if (highlightButton) {
       highlightButton.classList.add("guessed")
     };
 
+    if word.length === answerArray.length {
+      found = true;
+    }
+
+  }
+
+
+  // listener for keyboard inputs
+  body.onkeydown = (event) => {
+    if ( !event.metaKey ) {
+      event.preventDefault();
+    }
+
+    let newestGuess;
+    if (letters[event.keyCode]) {
+      newestGuess = letters[event.keyCode];
+      guessArray.push(newestGuess);
+    }
+    handleLetter(newestGuess);
   //end of keypress event listener
-    };
+  };
 
-  // does not focus keyboard for mobile
+
+  // does not actually focus keyboard for mobile
   // document.getElementById("hidden-input").focus();
-
 
   const resetWord = () => {
     let buttonsToReset = document.getElementsByName("button-letters");
@@ -232,12 +208,13 @@ body.onkeydown = (event) => {
     let resetZone = document.getElementsByClassName('guess')[0];
     resetZone.innerHTML = "";
     guessDisplay.innerHTML = "You guessed: -"
+    found = false;
     hangman();
     }
   }
+  //render reset button event listener
   let resetButton = document.getElementsByClassName("reset-button");
   resetButton[0].addEventListener("click", resetWord, false);
 
-
-//end of doc
+//end of doc, end of document loaded listener
 });

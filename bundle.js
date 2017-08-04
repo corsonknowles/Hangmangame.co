@@ -67,7 +67,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: /Users/SlowMoney/Desktop/Hangman/hangman.js Unexpected token (127:15)\nYou may need an appropriate loader to handle this file type.\n| // handle letter\n| \n| handleLetter() {\n|   \n| }");
+throw new Error("Module parse failed: /Users/SlowMoney/Desktop/Hangman/hangman.js Unexpected token (174:7)\nYou may need an appropriate loader to handle this file type.\n|     };\n| \n|     if word.length === answerArray.length {\n|       found = true;\n|     }");
 
 /***/ })
 /******/ ]);
