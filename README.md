@@ -33,10 +33,8 @@ I executed this project with the following technologies and constraints:
 - Webpack was used in the rapid development of this project, and it also allows for the import of an array of plain text words with 40,000 unique entries
 - I structured the words for import as a JavaScript array, using a one time Ruby script to format the original text file
 
-![HangmanMobile](/docs/images/HangmanMobile.jpg)
-
 ### Future Directions
-I am very interested in the following extensions to the game:
+I am pretty psyched about building these two future feature extensions for the game:
 - [ ] Two player mode, which must be particularly mobile friendly, allowing one player to set a word and hand their device to their partner to guess
 - [ ] Internationalization and user extensible dictionaries. This feature idea kind of fascinates me, I would love to allow for both a voting system to add words and whole-scale upload of dictionaries with international language support.
 
