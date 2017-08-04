@@ -53,7 +53,7 @@ a:link, a:visited, a:hover {
 }
 
 footer {
-	background: #c4c7ce
+	background: #c4c7ce;
 	color: #272100;
 	position: fixed;
 	left: 0;
@@ -70,6 +70,7 @@ footer {
 
 .guess {
 	margin-top: 5%;
+
 }
 
 .guessed {
@@ -119,6 +120,7 @@ footer {
 	width: 320px;
 	min-height: 200px;
 	height: 20vmin;
+
 }
 
 /* flip speed goes here */
@@ -127,12 +129,14 @@ footer {
 	transform-style: preserve-3d;
 	transform-origin: right center;
 	position: relative;
-	font-size: 40vmin;
+	font-size: 18vmin;
 	text-align: center;
 	color: #bdbdbd;
 	/*color: #424242;*/
 	font-family: 'Montserrat', Arial, Helvetica, 'sans-serif';
 	/*background: black;*/
+	max-height: 35vmin;
+	margin-bottom: 5px;
 }
 
 /* hide back of pane during swap */

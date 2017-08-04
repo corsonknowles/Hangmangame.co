@@ -92,7 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
       let flipper = document.createElement('div');
       flipper.setAttribute('class', 'flipper');
       flipper.setAttribute('name', word[i]);
-      flipper.style.fontSize = `${Math.floor((100 / word.length))}vmin`;
+
+      flipper.style.fontSize = `${Math.floor((100 / word.length)) < 18 ? Math.floor((100 / word.length)): 18 }vmin`;
+
       console.log(`${Math.floor((100 / word.length))}vmin`);
       addLetter.appendChild(flipper);
       let blankFace = document.createElement('div');
