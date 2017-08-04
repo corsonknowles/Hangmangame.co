@@ -16,6 +16,7 @@ I made this game as a demonstration of the power of the new CSS3 card flips. You
 - [ ] Your score is tracked, but no penalties are assessed for missing letters.
 - [ ] Your most recent guess is prominently displayed, just above the online keyboard.
 
+![Hangman](/docs/images/Hangman.png)
 
 ### How It Was Crafted
 
@@ -31,6 +32,8 @@ I executed this project with the following technologies and constraints:
 - The game is housed in a single HTML5 semantic webpage
 - Webpack was used in the rapid development of this project, and it also allows for the import of an array of plain text words with 40,000 unique entries
 - I structured the words for import as a JavaScript array, using a one time Ruby script to format the original text file
+
+![HangmanMobile](/docs/images/HangmanMobile.jpg)
 
 ### Future Directions
 I am very interested in the following extensions to the game:
