@@ -293,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     guessDisplay.innerHTML = "You guessed: -"
     found = false;
     answerArray = [];
+    guessArray = [];
     hangman();
     }
   }
