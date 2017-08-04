@@ -281,23 +281,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // document.getElementById("hidden-input").focus();
 
   const resetWord = () => {
+    score.innerHTML = `0/26`;
+    guessDisplay.innerHTML = "You guessed: -"
+
     let buttonsToReset = document.getElementsByName("button-letters");
+
+    let resetZone = document.getElementsByClassName('guess')[0];
+    resetZone.innerHTML = "";
 
     if (buttonsToReset) {
       buttonsToReset.forEach ((button) => {
         button.classList.remove("guessed");
       });
-    word = __WEBPACK_IMPORTED_MODULE_0__lib_dictionary_js__["a" /* default */][Math.floor(Math.random() * __WEBPACK_IMPORTED_MODULE_0__lib_dictionary_js__["a" /* default */].length)];
-    let resetZone = document.getElementsByClassName('guess')[0];
-    resetZone.innerHTML = "";
-    guessDisplay.innerHTML = "You guessed: -"
-    score.innerHTML = `0/26`;
+    }
     found = false;
     answerArray = [];
     guessArray = [];
-
+    word = __WEBPACK_IMPORTED_MODULE_0__lib_dictionary_js__["a" /* default */][Math.floor(Math.random() * __WEBPACK_IMPORTED_MODULE_0__lib_dictionary_js__["a" /* default */].length)];
     hangman();
-    }
+
   }
   //render reset button event listener
   let resetButton = document.getElementsByClassName("reset-button");

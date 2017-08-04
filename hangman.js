@@ -209,23 +209,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // document.getElementById("hidden-input").focus();
 
   const resetWord = () => {
+    score.innerHTML = `0/26`;
+    guessDisplay.innerHTML = "You guessed: -"
+
     let buttonsToReset = document.getElementsByName("button-letters");
+
+    let resetZone = document.getElementsByClassName('guess')[0];
+    resetZone.innerHTML = "";
 
     if (buttonsToReset) {
       buttonsToReset.forEach ((button) => {
         button.classList.remove("guessed");
       });
-    word = dictionaryArray[Math.floor(Math.random() * dictionaryArray.length)];
-    let resetZone = document.getElementsByClassName('guess')[0];
-    resetZone.innerHTML = "";
-    guessDisplay.innerHTML = "You guessed: -"
-    score.innerHTML = `0/26`;
+    }
     found = false;
     answerArray = [];
     guessArray = [];
-
+    word = dictionaryArray[Math.floor(Math.random() * dictionaryArray.length)];
     hangman();
-    }
+
   }
   //render reset button event listener
   let resetButton = document.getElementsByClassName("reset-button");
