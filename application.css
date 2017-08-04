@@ -1,7 +1,7 @@
 body {
 	/*background-image: linear-gradient(-90deg, #000000, #FFFFFF);*/
 	/*background: linear-gradient(to right, rgba(255,0,0,0), rgba(255, 255, 255, 0.7));*/
-	font-family: 'Montserrat', Arial, Helvetica, 'sans-serif';
+	font-family: "monospace", 'Montserrat', Arial, Helvetica, 'sans-serif';
 	background: #1c1c1c;
 	color: white;
 }
@@ -10,7 +10,7 @@ section {
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: row;
-
+	justify-content: center;
 }
 
 main {
@@ -24,8 +24,39 @@ main {
 	overflow: hidden;*/
 }
 
+h1 {
+	font-size: 6vmin;
+  text-align: center;
+  border-bottom: 1px solid whitesmoke;
+  /* width: 20%; */
+  /* align-self: center; */
+  /* align-items: center; */
+  display: flex;
+  justify-content: center;
+  padding-bottom: 4vmin;
+  margin-top: -1vmin;
+}
+
+h2 {
+
+}
+
+.guess {
+	margin-top: 5%;
+}
+
 .guessed {
 	background: blue;
+
+}
+
+.guess-display {
+	font-size: 10vmin;
+
+}
+
+.guesses {
+	color: transparent;
 }
 
 .rainbow {
@@ -59,7 +90,8 @@ main {
 
 .flip-container, .front, .back {
 	width: 320px;
-	height: 400px;
+	min-height: 100px;
+	height: 20vh;
 }
 
 /* flip speed goes here */
@@ -74,7 +106,6 @@ main {
 	/*color: #424242;*/
 	font-family: 'Montserrat', Arial, Helvetica, 'sans-serif';
 	/*background: black;*/
-
 }
 
 /* hide back of pane during swap */
@@ -110,3 +141,8 @@ main {
 /*.flip-container:hover .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
 	transform: rotateY(180deg);
 }*/
+
+.demo {
+	text-align: center;
+	height: 12vmin;
+}

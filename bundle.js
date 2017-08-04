@@ -133,7 +133,7 @@ let toggleText = (element) => {
 
 
 // writing to the page
-document.getElementById("demo").innerHTML = "You may guess a letter. Simply type with your keyboard"
+document.getElementById("demo").innerHTML = "You may guess a letter. <br /> Simply type with your keyboard"
 
 // list of keyboard codes for letters
 let letters = {
@@ -234,11 +234,11 @@ body.onkeydown = (event) => {
   console.log(letters[event.keyCode]);
   if (highlightButton) {
     highlightButton.classList.add("guessed")
-  }; 
-
-//end of event listener
   };
 
+//end of keypress event listener
+  };
+  prompt();
 //end of doc
 });
 

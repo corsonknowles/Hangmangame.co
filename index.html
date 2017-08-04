@@ -24,7 +24,8 @@
           reader.readAsText(input.files[0]);
         };
       </script>
-
+      <h1>Hangman</h1>
+      <section hidden id="demo" class="demo"> </section>
       <div>
         <button hidden type="button" name="button" class="full-screen-button" > Go Full Screen</button>
       </div>
@@ -33,17 +34,12 @@
       <main>
         <section class="guess"></section>
 
-        <section>
-        <div class="guess-display">guess display</div>
-        </section>
+        <section class="guess-display">guess display</section>
+        <section><div id="buttons"></div></section>
 
-        <section>
-          <div id="buttons"></div>
-        </section>
+        <section hidden id="guess-array" class="guesses"> </section>
 
-        <section id="guess-array" class="guesses"> </section>
 
-        <section id="demo" class="demo"> </section>
 
       </main>
     </div>
