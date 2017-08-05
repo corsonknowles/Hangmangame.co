@@ -215,10 +215,10 @@ document.addEventListener('DOMContentLoaded', () => {
       list.classList.add("key--letter")
       makeButtons.appendChild(eachLetter);
       eachLetter.appendChild(list);
-      if (i === 9 || i === 18) {
-        let lineBreak = document.createElement('br');
-        eachLetter.append(lineBreak);
-      }
+      // if (i === 9 || i === 18) {
+      //   let lineBreak = document.createElement('br');
+      //   eachLetter.append(lineBreak);
+      // }
     }
   }
 
