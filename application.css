@@ -163,7 +163,7 @@ footer {
 }
 
 .guess {
-	margin-top: 5%;
+	margin-top: 3vmax;
 
 }
 
@@ -177,8 +177,9 @@ footer {
 }
 
 .guess-display {
-	font-size: 3vh;
-	min-height: 4vh;
+	font-size: 3vmin;
+	min-height: 4vmin;
+  margin: 1vmax;
 }
 
 .guesses {
@@ -227,13 +228,13 @@ footer {
 	transform-style: preserve-3d;
 	transform-origin: right center;
 	position: relative;
-	font-size: 16vh;
+	font-size: 16vmin;
 	text-align: center;
 	color: #bdbdbd;
 	/*color: #424242;*/
 	font-family: 'Montserrat', Arial, Helvetica, 'sans-serif';
 	/*background: black;*/
-	max-height: 35vh;
+	max-height: 35vmin;
 	margin-bottom: 5px;
 }
 
