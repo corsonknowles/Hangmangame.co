@@ -177,8 +177,8 @@ footer {
 }
 
 .guess-display {
-	font-size: 5vh;
-	min-height: 7vh;
+	font-size: 3vh;
+	min-height: 4vh;
 }
 
 .guesses {
@@ -216,8 +216,8 @@ footer {
 
 .flip-container, .front, .back {
 	width: 320px;
-	min-height: 200px;
-	height: 20vh;
+	min-height: 160px;
+	height: 16vh;
 
 }
 
@@ -227,7 +227,7 @@ footer {
 	transform-style: preserve-3d;
 	transform-origin: right center;
 	position: relative;
-	font-size: 18vh;
+	font-size: 16vh;
 	text-align: center;
 	color: #bdbdbd;
 	/*color: #424242;*/
@@ -273,7 +273,8 @@ footer {
 
 .demo {
 	text-align: center;
-	height: 12vh;
+	height: 6vmin;
+  min-height: 10px;
 	padding-top: 5px;
 	margin-top: 5px;
 }
@@ -311,10 +312,10 @@ footer {
 	background: #eee;
 	border-radius: 5px;
 	padding: 5px;
-	width: 68vmin;
+	width: 40vw;
   min-height: 60%;
-	min-width: 5%;
-	padding-bottom: 12px;
+	min-width: 40%;
+	padding-bottom: 28px;
 	margin: 10px;
 }
 
