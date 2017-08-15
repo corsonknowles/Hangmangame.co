@@ -187,10 +187,10 @@ footer {
 
 .flex-section {
   display: flex;
-  text-align: center;
+  /*text-align: center;*/
   align-items: center;
-  align-self: center;
-  justify-content: space-between;
+  /*align-self: center;*/
+  /*justify-content: space-between;*/
   flex-direction: column;
   flex-wrap: nowrap;
 }
