@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Hangman: Play the Hangman Game with your keyboard or by tapping on the screen</title>
-    <meta name="description" content="This awesome Hangman game is built with CSS3 animations and vanilla JavaScript. It let's you type on your own keyboard to guess letters, or tap the onscreen keyboard to get the same result.">
+    <meta name="description" content="This awesome Hangman game is built with CSS3 animations and vanilla JavaScript. It let's you play by typing on your own keyboard to guess letters, or by tapping the onscreen keyboard to get the same result.">
     <script type="text/javascript" src="./bundle.js" > </script>
     <link href="application.css" type="text/css" rel="stylesheet" />
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -25,13 +25,10 @@
     <meta name="theme-color" content="#ffffff">
   </head>
   <body class="rainbow">
-    <div id="fullscreen">
-
+      <header>
       <h1><a href="http://hangmangame.co">Hangman</a></h1>
-      <section hidden id="demo" class="demo"> </section>
-
-      <div hidden class="developer-display">dev display</div>
-
+      <section id="demo" class="demo"> </section>
+      </header>
       <main>
         <section class="guess"></section>
 
@@ -44,7 +41,7 @@
           <section hidden id="mobile-prompt" class="mobile-prompt"><input hidden id="hidden-input" type="text" name="" value=""> </input> </section>
           <section> <button type="button" name="reset-button" class="reset-button" id="reset-button" >Get New Word</button> </section>
           <section> <button hidden type="button" name="button" class="full-screen-button" >Go Full Screen</button> </section>
-          <section class="score">0 / 26</section>
+          <section class="score">0/26</section>
         </div>
         <!-- allow user dictionary   -->
         <input hidden type='file' accept='text/plain' onchange='openFile(event)'><br>
@@ -61,8 +58,9 @@
             reader.readAsText(input.files[0]);
           };
         </script>
+        <div hidden class="developer-display">dev display</div>
       </main>
-    </div>
+
     <footer>
       <a href="http://github.com/corsonknowles" target="_blank">GitHub</a>
       <a href="https://www.linkedin.com/in/davidcorsonknowles/" target="_blank">LinkedIn</a>
