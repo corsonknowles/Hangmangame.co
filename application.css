@@ -105,6 +105,7 @@ section {
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: center;
+  position: relative;
 }
 
 main {
@@ -175,6 +176,7 @@ footer {
   min-width: 40vmin;
   padding-bottom: 28px;
   margin: 10px;
+  position: relative;
 }
 
 .button-section::after {
@@ -362,6 +364,10 @@ transform: rotateY(180deg);
   box-shadow: 0 0.3rem 0 0.05rem #222222;
   border-bottom-color: #555555;
   width: auto;
+  position: relative;
+}
+
+.reset-section {
   position: relative;
 }
 

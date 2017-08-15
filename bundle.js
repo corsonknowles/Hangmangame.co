@@ -113,19 +113,19 @@ document.addEventListener('DOMContentLoaded', () => {
   hangman();
 
   // select the right fullscreen method for each browser
-  const toggleFullScreen = () => {
-    let element = document.getElementById("fullscreen");
-    if (element.requestFullScreen) {
-      element.requestFullScreen();
-    } else if(element.mozRequestFullScreen) {
-      element.mozRequestFullScreen();
-    } else if(element.webkitRequestFullScreen) {
-      element.webkitRequestFullScreen();
-    }
-  }
-
-  let fullScreenButton = document.getElementsByClassName("full-screen-button");
-  fullScreenButton[0].addEventListener("click", toggleFullScreen, false);
+  // const toggleFullScreen = () => {
+  //   let element = document.getElementById("fullscreen");
+  //   if (element.requestFullScreen) {
+  //     element.requestFullScreen();
+  //   } else if(element.mozRequestFullScreen) {
+  //     element.mozRequestFullScreen();
+  //   } else if(element.webkitRequestFullScreen) {
+  //     element.webkitRequestFullScreen();
+  //   }
+  // }
+  //
+  // let fullScreenButton = document.getElementsByClassName("full-screen-button");
+  // fullScreenButton[0].addEventListener("click", toggleFullScreen, false);
 
   let toggleText = (element) => {
     if (element.innerHTML === "Go Full Screen") {
