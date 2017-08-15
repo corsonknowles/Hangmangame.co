@@ -42,24 +42,6 @@
         </div>
       </main>
 
-        <!-- will allow user dictionary   -->
-        <input hidden type='file' accept='text/plain' onchange='openFile(event)'><br>
-        <img id='output'>
-        <script>
-          var openFile = function(event) {
-            var input = event.target;
-
-            var reader = new FileReader();
-            reader.onload = function(){
-              var text = reader.result;
-              console.log(reader.result.substring(0, 200));
-            };
-            reader.readAsText(input.files[0]);
-          };
-        </script>
-        <div hidden class="developer-display">dev display</div>
-        <section hidden id="guess-array" class="guesses"> </section>
-
     <footer>
       <a href="http://github.com/corsonknowles" target="_blank">GitHub</a>
       <a href="https://www.linkedin.com/in/davidcorsonknowles/" target="_blank">LinkedIn</a>

@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let answerArray = [];
   let guessDisplay = document.querySelector('.guess-display');
   let score = document.querySelector('.score');
+
   // handle each letter, whether it is a click or a press
   let handleLetter = function (newestGuess) {
 
@@ -186,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // logic gate to record the end of the game
     if (word.length === answerArray.length) {
       found = true;
+      guessDisplay.innerHTML = `You won! In ${guessArray.length} guesses!`
     }
 
   }
