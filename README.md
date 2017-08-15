@@ -29,7 +29,7 @@ Input comes from the user keyboard. This works by tying JavaScript event listene
 I executed this project with the following technologies and constraints:
 
 - A game engine written entirely in vanilla JavaScript using direct DOM manipulation and event listeners, without jQuery
-- Advanced CSS animation rendering each letter as a flippable card
+- Advanced CSS animation, rendering each letter as a flippable card
 - The game is housed in a single HTML5 semantic webpage
 - Webpack was used in the rapid development of this project, and it also allows for the import of an array of plain text words with 40,000 unique entries
 - I structured the words for import as a JavaScript array, using a one time Ruby script to format the original text file
@@ -37,6 +37,6 @@ I executed this project with the following technologies and constraints:
 ### Future Directions
 I am pretty psyched about building these two future feature extensions for the game:
 - [ ] Two player mode, which must be particularly mobile friendly, allowing one player to set a word and hand their device to their partner to guess
-- [ ] Internationalization and user extensible dictionaries. This feature idea kind of fascinates me, I would love to allow for both a voting system to add words and whole-scale upload of dictionaries with international language support.
+- [ ] Internationalization and user extensible dictionaries. This feature idea kind of fascinates me, I would love to allow for both a voting system to add words and whole-scale upload of dictionaries with multi-lingual support.
 
 ### [HangManGame.co](http://www.hangmangame.co)
