@@ -219,6 +219,7 @@ footer {
   font-size: 3vmax;
   min-height: 4vmax;
   margin: 1vmax;
+  position: relative;
 }
 
 .guesses {
@@ -230,6 +231,7 @@ footer {
   text-align: center;
   height: 4vmax;
   margin: 0.4vmax;
+  position: relative;
 }
 
 .keyboard > * {
@@ -248,12 +250,14 @@ footer {
   text-align: center;
   color: #eeeeee;
   font-size: 1rem;
+  position: relative;
 }
 
 .key:active {
   background: #2a2a2a;
   color: whitesmoke;
   box-shadow: 0 0 0 0.07vmax black;
+  position: relative;
 }
 
 .letters {
@@ -351,16 +355,18 @@ transform: rotateY(180deg);
   height: auto;
   min-height: 2.5rem;
   /*width: 3.8rem;*/
-  /*box-sizing: border-box;*/
+  box-sizing: border-box;
   cursor: pointer;
   -webkit-user-select: none;
   border: 1px solid #444444;
   box-shadow: 0 0.3rem 0 0.05rem #222222;
   border-bottom-color: #555555;
   width: auto;
+  position: relative;
 }
 
 .score {
   margin: 7px;
   padding: 7px;
+  position: relative;
 }
