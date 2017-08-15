@@ -165,13 +165,13 @@ footer {
 }
 
 .button-section {
-  background: #eeeeee;
+  /*background: #eeeeee;*/
   border-radius: 5px;
   padding: 5px;
   /*width: 40vw;*/
   height: 35%;
   min-height: 10vmax;
-  width: 40%;
+  width: 70%;
   min-width: 40vmin;
   padding-bottom: 28px;
   margin: 10px;
@@ -206,16 +206,18 @@ footer {
 }
 
 .guessed {
-  background: #2a2a2a;
-  color: #aaaaaa;
+  background: #555555 !important;
+  color: #888888 !important;
+  box-shadow: 0 0.2vmax 0 0.05vmax #333333 !important;
+  border-bottom-color: #444444 !important;
   position: relative;
-  top: 0.2em;
-  box-shadow: 0 0 0 0.05em black;
+  top: 0.4vmax;
+  box-shadow: 0 0 0 0.09vmax black;
 }
 
 .guess-display {
-  font-size: 3vmin;
-  min-height: 4vmin;
+  font-size: 3vmax;
+  min-height: 4vmax;
   margin: 1vmax;
 }
 
@@ -226,21 +228,21 @@ footer {
 .keyboard {
   display: inline-block;
   text-align: center;
-  height: 3vmax;
-  margin: 0.3vmax;
+  height: 4vmax;
+  margin: 0.4vmax;
 }
 
 .keyboard > * {
   cursor: pointer;
   border-radius: 0.4vmax;
-  margin: 0.3vmax;
-  padding: 0.3vmax;
-  width: 3vmax;
+  margin: 0.4vmax;
+  padding: 0.4vmax;
+  width: 4vmax;
   height: 100%;
   box-sizing: border-box;
   -webkit-user-select: none;
   border: 2px solid #444444;
-  box-shadow: 0 0.2vmax 0 0.05vmax #222222;
+  box-shadow: 0 0.3vmax 0 0.06vmax #222222;
   border-bottom-color: #555555;
   background: #333333;
   text-align: center;
@@ -249,9 +251,7 @@ footer {
 
 .key:active {
   background: #2a2a2a;
-  color: white;
-  position: relative;
-  /*top: 0.2em;*/
+  color: whitesmoke;
   box-shadow: 0 0 0 0.07vmax black;
 }
 
@@ -343,21 +343,21 @@ transform: rotateY(180deg);
   color: #333333;
   text-align: center;
   background: #eeeeee;
-  border-radius: 0.3em;
-  margin: 0.3em;
-  padding: 0.3em;
-  font-size: 1em;
-  width: 3.3em;
+  border-radius: 0.4em;
+  margin: 0.5vmax;
+  padding: 0.5vmax;
+  font-size: 1.75vmax;
+  width: 3.8vmax;
   box-sizing: border-box;
   cursor: pointer;
   -webkit-user-select: none;
   border: 1px solid #444444;
-  box-shadow: 0 0.2em 0 0.05em #222222;
+  box-shadow: 0 0.3vmax 0 0.05vmax #222222;
   border-bottom-color: #555555;
   width: auto;
 }
 
 .score {
-  margin: 5px;
-  padding: 5px;
+  margin: 1vmin;
+  padding: 1vmin;
 }
