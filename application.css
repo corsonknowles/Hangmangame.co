@@ -247,6 +247,7 @@ footer {
   background: #333333;
   text-align: center;
   color: #eeeeee;
+  font-size: 1rem;
 }
 
 .key:active {
