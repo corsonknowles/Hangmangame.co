@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let buttonMaker = function () {
     let makeButtons = document.getElementById('buttons');
     let eachLetter = document.createElement('ul');
-    eachLetter.classList.add("keyboard__row")
+    eachLetter.classList.add("keyboard")
 
     for (let i = 0; i < alphabet.length; i++) {
       let list = document.createElement('button');
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
       list.innerHTML = alphabet[i];
       list.name = "button-letters";
       list.addEventListener("click", handleClick, false);
-      list.classList.add("key--letter")
+      list.classList.add("key")
       makeButtons.appendChild(eachLetter);
       eachLetter.appendChild(list);
       // if (i === 9 || i === 18) {

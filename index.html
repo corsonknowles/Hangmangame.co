@@ -5,9 +5,7 @@
     <title>Hangman: Play the Hangman Game with your keyboard or by tapping on the screen</title>
     <meta name="description" content="This awesome Hangman game is built with CSS3 animations and vanilla JavaScript. It let's you type on your own keyboard to guess letters, or tap the onscreen keyboard to get the same result.">
     <script type="text/javascript" src="./bundle.js" > </script>
-
     <link href="application.css" type="text/css" rel="stylesheet" />
-
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -28,21 +26,7 @@
   </head>
   <body class="rainbow">
     <div id="fullscreen">
-      <!-- allow user dictionary   -->
-      <input hidden type='file' accept='text/plain' onchange='openFile(event)'><br>
-      <img id='output'>
-      <script>
-        var openFile = function(event) {
-          var input = event.target;
 
-          var reader = new FileReader();
-          reader.onload = function(){
-            var text = reader.result;
-            console.log(reader.result.substring(0, 200));
-          };
-          reader.readAsText(input.files[0]);
-        };
-      </script>
       <h1><a href="http://hangmangame.co">Hangman</a></h1>
       <section hidden id="demo" class="demo"> </section>
 
@@ -62,6 +46,21 @@
           <section> <button hidden type="button" name="button" class="full-screen-button" >Go Full Screen</button> </section>
           <section class="score">0 / 26</section>
         </div>
+        <!-- allow user dictionary   -->
+        <input hidden type='file' accept='text/plain' onchange='openFile(event)'><br>
+        <img id='output'>
+        <script>
+          var openFile = function(event) {
+            var input = event.target;
+
+            var reader = new FileReader();
+            reader.onload = function(){
+              var text = reader.result;
+              console.log(reader.result.substring(0, 200));
+            };
+            reader.readAsText(input.files[0]);
+          };
+        </script>
       </main>
     </div>
     <footer>
