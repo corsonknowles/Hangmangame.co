@@ -108,6 +108,12 @@ section {
   position: relative;
 }
 
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 main {
   /*display: flex;
   flex-direction: column;
@@ -377,6 +383,12 @@ transform: rotateY(180deg);
 
 .reset-section {
   position: relative;
+}
+
+.reset-section::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .score {
