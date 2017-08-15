@@ -115,14 +115,6 @@ section::after {
 }
 
 main {
-  /*display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;*/
 }
 
 h1 {
@@ -173,32 +165,22 @@ footer {
 
 .button-section {
   /*background: #eeeeee;*/
-  border-radius: 5px;
-  padding: 5px;
+  /*border-radius: 5px;*/
+  /*padding: 5px;*/
   /*width: 40vw;*/
-  height: 35%;
-  min-height: 10vmax;
-  width: 70%;
-  min-width: 40vmin;
-  padding-bottom: 28px;
-  margin: 10px;
+  min-height: 25vh;
+  /*min-height: 10vmax;*/
+  width: 70vw;
+  /*min-width: 40vmin;*/
+  /*padding-bottom: 10px;*/
+  /*margin: 10px;*/
   position: relative;
-}
-
-.button-section::after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 .flex-section {
   display: flex;
-  /*text-align: center;*/
   align-items: center;
-  /*align-self: center;*/
-  /*justify-content: space-between;*/
   flex-direction: column;
-  flex-wrap: nowrap;
 }
 
 .demo {
