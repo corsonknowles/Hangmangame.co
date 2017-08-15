@@ -29,21 +29,20 @@
       <h1><a href="http://hangmangame.co">Hangman</a></h1>
       <section id="demo" class="demo"> </section>
       </header>
+
       <main>
         <section class="guess"></section>
 
         <div class="flex-section">
           <section class="guess-display">You guessed: -</section>
           <section class="button-section"><div id="buttons"></div> </section>
-
-          <section hidden id="guess-array" class="guesses"> </section>
-
-          <section hidden id="mobile-prompt" class="mobile-prompt"><input hidden id="hidden-input" type="text" name="" value=""> </input> </section>
           <section> <button type="button" name="reset-button" class="reset-button" id="reset-button" >Get New Word</button> </section>
           <section> <button hidden type="button" name="button" class="full-screen-button" >Go Full Screen</button> </section>
           <section class="score">0/26</section>
         </div>
-        <!-- allow user dictionary   -->
+      </main>
+
+        <!-- will allow user dictionary   -->
         <input hidden type='file' accept='text/plain' onchange='openFile(event)'><br>
         <img id='output'>
         <script>
@@ -59,7 +58,7 @@
           };
         </script>
         <div hidden class="developer-display">dev display</div>
-      </main>
+        <section hidden id="guess-array" class="guesses"> </section>
 
     <footer>
       <a href="http://github.com/corsonknowles" target="_blank">GitHub</a>
