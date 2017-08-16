@@ -17,7 +17,7 @@ I made this game as a demonstration of the power of the new CSS3 card flips. You
 - [ ] Your most recent guess is prominently displayed, just above the online keyboard.
 - [ ] The size of the blanks and letters for each word are dynamically set by the length of the word chosen.
 
-![Hangman](/docs/images/Hangman.png)
+![Hangman](/images/hangman_demonstrated.gif)
 
 ### How It Was Crafted
 

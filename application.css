@@ -245,7 +245,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   background: #333333;
   text-align: center;
   color: #eeeeee;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  /*font-size: 1.5vmax;*/
   position: relative;
 }
 

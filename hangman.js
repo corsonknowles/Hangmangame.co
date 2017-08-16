@@ -240,5 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let resetButton = document.getElementsByClassName("reset-button");
   resetButton[0].addEventListener("click", resetWord, false);
 
+
+
 //end of doc, end of document loaded listener
 });
