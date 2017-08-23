@@ -164,13 +164,17 @@ document.addEventListener('DOMContentLoaded', () => {
   let handleLetter = function (newestGuess) {
 
     guessDisplay.innerHTML = `You guessed: ${newestGuess || "-"}`;
-    if (!word.includes(newestGuess)) {
-      missed += 1;
+    if (!guessArray.includes(newestGuess)) {
+      guessArray.push(newestGuess);
+      if (!word.includes(newestGuess)) {
+        missed += 1;
+      }
     }
     score.innerHTML = `${guessArray.length}/26 ${missed} misses`;
 
     // store correct answers
     if (!answerArray.includes(newestGuess)) {
+
       for (let i = 0; i < word.length; i++) {
         if (word[i] === newestGuess) {
           answerArray.push(newestGuess);
@@ -205,11 +209,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let newestGuess;
     if (letters[event.keyCode]) {
       newestGuess = letters[event.keyCode];
-      if (!guessArray.includes(newestGuess)) {
-        guessArray.push(newestGuess);
-      }
     }
-    if (!found) {
+    if (!found && 'abcdefghijklmnopqrstuvwxyz'.includes(newestGuess)) {
       handleLetter(newestGuess);
     }
   //end of keypress event listener
