@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // document.getElementById("hidden-input").focus();
 
   const resetWord = () => {
-    score.innerHTML = `0/26`;
+    score.innerHTML = `0/26 0 misses`;
     guessDisplay.innerHTML = "You guessed: -";
 
     let buttonsToReset = document.getElementsByName("button-letters");
