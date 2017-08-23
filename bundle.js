@@ -74,9 +74,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // set up file reader http://www.javascripture.com/FileReader
+  // TODO set up file reader http://www.javascripture.com/FileReader
   let word = "hangman";
   let found = false;
+  let missed = 0;
   word = __WEBPACK_IMPORTED_MODULE_0__lib_dictionary_js__["a" /* default */][Math.floor(Math.random() * __WEBPACK_IMPORTED_MODULE_0__lib_dictionary_js__["a" /* default */].length)];
 
   // check case, just in case
@@ -235,7 +236,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let handleLetter = function (newestGuess) {
 
     guessDisplay.innerHTML = `You guessed: ${newestGuess || "-"}`;
-    score.innerHTML = `${guessArray.length}/26`;
+    if (!word.includes(newestGuess)) {
+      missed += 1;
+    }
+    score.innerHTML = `${guessArray.length}/26 ${missed} misses`;
 
     // store correct answers
     if (!answerArray.includes(newestGuess)) {
@@ -289,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const resetWord = () => {
     score.innerHTML = `0/26`;
-    guessDisplay.innerHTML = "You guessed: -"
+    guessDisplay.innerHTML = "You guessed: -";
 
     let buttonsToReset = document.getElementsByName("button-letters");
 
@@ -302,6 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
     found = false;
+    missed = 0;
     answerArray = [];
     guessArray = [];
     word = __WEBPACK_IMPORTED_MODULE_0__lib_dictionary_js__["a" /* default */][Math.floor(Math.random() * __WEBPACK_IMPORTED_MODULE_0__lib_dictionary_js__["a" /* default */].length)];
