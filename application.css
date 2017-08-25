@@ -173,7 +173,7 @@ footer {
   /*border-radius: 5px;*/
   /*padding: 5px;*/
   /*width: 40vw;*/
-  min-height: 25vh;
+  min-height: 24vh;
   /*min-height: 10vmax;*/
   width: 70vw;
   /*min-width: 40vmin;*/
@@ -305,7 +305,7 @@ transform: rotateY(180deg);
   /*color: #424242;*/
   /*font-family: 'Montserrat', Arial, Helvetica, 'sans-serif';*/
   /*background: black;*/
-  max-height: 35vmin;
+  max-height: 34vmin;
   margin-bottom: 5px;
 }
 
