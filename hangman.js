@@ -153,15 +153,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // handle each letter, whether it is a click or a press
   let handleLetter = function (newestGuess) {
 
-    if (!guessArray.includes(newestGuess)) {
+    if (guessArray.includes(newestGuess)) {
+      guessDisplay.innerHTML = `You already guessed: ${newestGuess || "-"}`;
+      return "there was a repeated guess";
+    } else {
       guessDisplay.innerHTML = `You guessed: ${newestGuess || "-"}`;
       guessArray.push(newestGuess);
       if (!word.includes(newestGuess)) {
         missed += 1;
       }
-    } else {
-      guessDisplay.innerHTML = `You already guessed: ${newestGuess || "-"}`;
-      return "there was a repeated guess";
     }
 
     score.innerHTML = `${guessArray.length}/26 ${missed} misses`;
