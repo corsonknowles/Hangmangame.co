@@ -118,7 +118,11 @@ main {
 }
 
 h1 {
-  font-size: 6vh;
+  color: whitesmoke;
+  font-size: 3vmax;
+  min-height: 4vmax;
+  margin: 1vmax;
+  /*font-size: 6vh;*/
   text-align: center;
   border-bottom: 1px solid whitesmoke;
   /* width: 20%; */
@@ -127,7 +131,7 @@ h1 {
   display: flex;
   justify-content: center;
   padding-bottom: 3vh;
-  margin-top: 1vh;
+  /*margin-top: 1vh;*/
 }
 
 h2 {
@@ -206,6 +210,7 @@ footer {
 }
 
 .guess-display {
+  color: whitesmoke;
   font-size: 3vmax;
   min-height: 4vmax;
   margin: 1vmax;
@@ -346,18 +351,18 @@ transform: rotateY(180deg);
   color: #333333;
   text-align: center;
   background: #eeeeee;
-  border-radius: 0.3rem;
+  border-radius: 1vmax;
   margin: 10px;
-  padding: 5px;
-  font-size: 1.5rem;
+  padding: 10px;
+  font-size: 2vmax;
   height: auto;
-  min-height: 2.5rem;
+  min-height: 2.5vmax;
   /*width: 3.8rem;*/
   box-sizing: border-box;
   cursor: pointer;
   -webkit-user-select: none;
   border: 1px solid #444444;
-  box-shadow: 0 0.3rem 0 0.05rem #222222;
+  box-shadow: 0 0.3vmax 0 0.05vmax #222222;
   border-bottom-color: #555555;
   width: auto;
   position: relative;
@@ -374,9 +379,15 @@ transform: rotateY(180deg);
 }
 
 .score {
-  margin: 7px;
+  /*margin: 7px;*/
   padding: 7px;
   position: relative;
+  color: whitesmoke;
+  font-size: 2vmax;
+  min-height: 3vmax;
+  margin: 1vmax;
+  /*font-size: 6vh;*/
+  text-align: center;
 }
 
 .clear:before,

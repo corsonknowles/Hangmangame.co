@@ -3,7 +3,7 @@ import dictionaryArray from './lib/dictionary.js'
 document.addEventListener('DOMContentLoaded', () => {
 
   // TODO set up file reader http://www.javascripture.com/FileReader
-  let word = "hangman";
+  let word; // = "hangman";
   let found = false;
   let missed = 0;
   word = dictionaryArray[Math.floor(Math.random() * dictionaryArray.length)];
@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // check case, just in case
   word = word.toLowerCase();
 
+  // render the board, with responsive font size set by word length
   const hangman = () => {
 
     let guessZone = document.getElementsByClassName('guess')[0];
@@ -56,16 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // let fullScreenButton = document.getElementsByClassName("full-screen-button");
   // fullScreenButton[0].addEventListener("click", toggleFullScreen, false);
 
-  let toggleText = (element) => {
-    if (element.innerHTML === "Go Full Screen") {
-      element.innerHTML = "Exit Full Screen"
-    } else if (element.innerHTML === "Exit Full Screen") {
-      element.innerHTML = "Go Full Screen"
-    }
-  }
+  // let toggleText = (element) => {
+  //   if (element.innerHTML === "Go Full Screen") {
+  //     element.innerHTML = "Exit Full Screen"
+  //   } else if (element.innerHTML === "Exit Full Screen") {
+  //     element.innerHTML = "Go Full Screen"
+  //   }
+  // }
 
   // writing to the page
-  document.getElementById("demo").innerHTML = "You may guess a letter <br /> Simply tap or type with your keyboard"
+  // document.getElementById("demo").innerHTML = "You may guess a letter <br /> Simply tap or type with your keyboard"
 
   // list of keyboard codes for letters
   let letters = {
@@ -95,17 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
     88 : "x",
     89 : "y",
     90 : "z"
-  }
-
-  // make a filter method so array of guesses does not retain repeat guesses
-  const uniquify = (array) => {
-    let result = array.filter(function() {
-      let seen = {};
-      return function(element, index, array) {
-        return !(element in seen) && (seen[element] = 1);
-      };
-    }());
-    return result.sort();
   }
 
   // make an array of all the values in the letters object
@@ -163,13 +153,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // handle each letter, whether it is a click or a press
   let handleLetter = function (newestGuess) {
 
-    guessDisplay.innerHTML = `You guessed: ${newestGuess || "-"}`;
     if (!guessArray.includes(newestGuess)) {
+      guessDisplay.innerHTML = `You guessed: ${newestGuess || "-"}`;
       guessArray.push(newestGuess);
       if (!word.includes(newestGuess)) {
         missed += 1;
       }
+    } else {
+      guessDisplay.innerHTML = `You already guessed: ${newestGuess || "-"}`;
+      return "there was a repeated guess";
     }
+
     score.innerHTML = `${guessArray.length}/26 ${missed} misses`;
 
     // store correct answers
@@ -222,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const resetWord = () => {
     score.innerHTML = `0/26 0 misses`;
-    guessDisplay.innerHTML = "You guessed: -";
+    guessDisplay.innerHTML = "Use your own keyboard or press a letter";
 
     let buttonsToReset = document.getElementsByName("button-letters");
 
