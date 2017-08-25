@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let found = false;
   let missed = 0;
   word = dictionaryArray[Math.floor(Math.random() * dictionaryArray.length)];
+  // word = "am";
 
   // check case, just in case
   word = word.toLowerCase();

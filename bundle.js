@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let found = false;
   let missed = 0;
   word = __WEBPACK_IMPORTED_MODULE_0__lib_dictionary_js__["a" /* default */][Math.floor(Math.random() * __WEBPACK_IMPORTED_MODULE_0__lib_dictionary_js__["a" /* default */].length)];
+  // word = "am";
 
   // check case, just in case
   word = word.toLowerCase();
