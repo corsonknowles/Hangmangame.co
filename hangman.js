@@ -2,7 +2,6 @@ import dictionaryArray from './lib/dictionary.js'
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // TODO set up file reader http://www.javascripture.com/FileReader
   let word; // = "hangman";
   let found = false;
   let missed = 0;
@@ -42,6 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   hangman();
 
+  // TODO set up file reader http://www.javascripture.com/FileReader
+  // TODO finish fullscreen set up with cross browser compatability
   // select the right fullscreen method for each browser
   // const toggleFullScreen = () => {
   //   let element = document.getElementById("fullscreen");
@@ -109,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
       buttonGuess = event.target.id;
     }
 
-    if (buttonGuess && !found) {
+    if (!found && buttonGuess) {
       handleLetter(buttonGuess);
     };
 
@@ -141,11 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // invoke the buttonMaker
   buttonMaker();
 
+  // we will need this for the keyboard event listener
   let body = document.querySelector('body');
-  let guessArray = [];
-  let answerArray = [];
+  // for feedback to the user
   let guessDisplay = document.querySelector('.guess-display');
   let score = document.querySelector('.score');
+  // for checking duplicates and rendering
+  let guessArray = [];
+  // for checking victory condition
+  let answerArray = [];
 
   // handle each letter, whether it is a click or a press
   let handleLetter = function (newestGuess) {
@@ -165,7 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // store correct answers
     if (!answerArray.includes(newestGuess)) {
-
       for (let i = 0; i < word.length; i++) {
         if (word[i] === newestGuess) {
           answerArray.push(newestGuess);
@@ -177,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
       element.classList.add("flipped");
     })
 
+    // add CSS styling to guessed letters
     let highlightButton = document.getElementById(newestGuess);
-
     if (highlightButton) {
       highlightButton.classList.add("guessed")
     };
@@ -207,10 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //end of keypress event listener
   };
 
-
-  // does not actually focus keyboard for mobile
-  // document.getElementById("hidden-input").focus();
-
+  // define a function that the reset button can use to reset all game variables
   const resetWord = () => {
     score.innerHTML = `0/26 0 misses`;
     guessDisplay.innerHTML = "Use your own keyboard or press a letter";
@@ -231,13 +232,10 @@ document.addEventListener('DOMContentLoaded', () => {
     guessArray = [];
     word = dictionaryArray[Math.floor(Math.random() * dictionaryArray.length)];
     hangman();
-
   }
   //render reset button event listener
   let resetButton = document.getElementsByClassName("reset-button");
   resetButton[0].addEventListener("click", resetWord, false);
-
-
 
 //end of doc, end of document loaded listener
 });
