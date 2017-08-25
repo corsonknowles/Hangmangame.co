@@ -179,9 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let buttonGuess;
     if (event.target.id) {
       buttonGuess = event.target.id;
-      if (!guessArray.includes(buttonGuess)) {
-        guessArray.push(buttonGuess);
-      }
     }
 
     if (buttonGuess && !found) {
