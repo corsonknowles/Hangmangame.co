@@ -1,5 +1,7 @@
 ## Hangman - A browser based word game
 
+#### [HangManGame.co](http://www.hangmangame.co)
+
 ### Background
 
 Hangman is a Victorian era word game of very obscure origin. It is sometimes (and much more rarely) also known as Gallows.
@@ -38,5 +40,3 @@ I executed this project with the following technologies and constraints:
 I am pretty psyched about building these two future feature extensions for the game:
 - [ ] Two player mode, which must be particularly mobile friendly, allowing one player to set a word and hand their device to their partner to guess
 - [ ] Internationalization and user extensible dictionaries. This feature kind of fascinates me, I would love to allow for both a voting system to add words and whole-scale upload of dictionaries with multi-lingual support.
-
-### [HangManGame.co](http://www.hangmangame.co)
