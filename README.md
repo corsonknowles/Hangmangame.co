@@ -15,7 +15,7 @@ I made this game as a demonstration of the power of the new CSS3 card flips. You
 - [ ] Words are selected randomly from a vast 40,000 word dictionary.
 - [ ] You can reset the game and get a new word at any point.
 - [ ] Your letters pressed are held tabbed down in the online keyboard display, until you reset the game.
-- [ ] Your score is tracked, but no penalties are assessed for missing letters.
+- [ ] Your guesses and misses are both tracked, but no penalties are assessed for missing letters.
 - [ ] Your most recent guess is prominently displayed, just above the online keyboard.
 - [ ] You are told when you have repeated a guess, and it is not counted against you.
 - [ ] The size of the blanks and letters for each word are dynamically set by the length of the word chosen.
